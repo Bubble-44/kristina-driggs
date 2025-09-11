@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 36">
+  <defs>
+    <style>
+      .st0 {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        fill: #fff;
+      }
+      .st1 { font-size: 18px; font-weight: bold; }
+      .st2 { letter-spacing: 0em; }
+      .st3 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+      .st4 { font-size: 18px; font-weight: bold; }
+      .st5 { opacity: .6; }
+      #line {
+        stroke-dasharray: 42.6;
+        stroke-dashoffset: 42.6;
+        opacity: 1;
+        animation: lineDraw 3.25s linear infinite;
+      }
+      @keyframes lineDraw {
+        0% {
+          stroke-dashoffset: 42.6;
+          opacity: 1;
+        }
+        46.15% { /* 1.5s of 3.25s */
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        92.3% { /* 3s of 3.25s */
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+      }
+      #arrow {
+  opacity: 0;
+  animation: arrowFade 3.25s linear infinite;
+}
+
+@keyframes arrowFade {
+  0% {
+    opacity: 0;
+  }
+  46.15% { /* 1.5s of 3.25s */
+    opacity: 0;
+  }
+  53.85% { /* 0.25s fade-in: 1.75s of 3.25s */
+    opacity: 1;
+  }
+  92.3% { /* 3s of 3.25s */
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+    </style>
+  </defs>
+  <g id="button" class="st5">
+    <rect x="0" y="0" width="148" height="36" rx="17.7" fill="#fff" opacity="0"/>
+    <path d="M17.7,0h113.4c9.8,0,17.7,7.9,17.7,17.7h0c0,9.8-7.9,17.7-17.7,17.7H17.7C7.9,35.3,0,27.4,0,17.7h0C0,7.9,7.9,0,17.7,0Z"/>
+  </g>
+  <g class="st0">
+    <text class="st4" transform="translate(21.3 21.9)">A</text>
+    <text class="st2" transform="translate(35.3 21.9)">l</text>
+    <text class="st1" transform="translate(41.8 21.9)">b</text>
+    <text class="st4" transform="translate(52.2 21.9)">um</text>
+  </g>
+  <line id="line" class="st3" x1="88.1" y1="17.7" x2="130.7" y2="17.7"/>
+  <polyline id="arrow" class="st3" points="118.5 5.4 130.7 17.7 118.5 29.9"/>
+</svg>

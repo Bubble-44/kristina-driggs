@@ -1,0 +1,22 @@
+/* Safe area helpers for devices with display cutouts / browser UI overlays (iOS Safari, etc.) */
+:root {
+	--safe-area-inset-top: env(safe-area-inset-top, 0px);
+	--safe-area-inset-right: env(safe-area-inset-right, 0px);
+	--safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+	--safe-area-inset-left: env(safe-area-inset-left, 0px);
+}
+
+/* Apply default page padding that respects the OS/browser UI */
+body {
+	padding-top: var(--safe-area-inset-top);
+	padding-bottom: var(--safe-area-inset-bottom);
+	padding-left: var(--safe-area-inset-left);
+	padding-right: var(--safe-area-inset-right);
+	margin: 0; /* avoid default body margin creating gaps */
+	box-sizing: border-box;
+}
+
+/* Utility: pull element above bottom inset when needed */
+.above-safe-area {
+	padding-bottom: calc(var(--safe-area-inset-bottom) + 1rem);
+}

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS & CSS Animation Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .animation-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 250px; /* Ensure consistent height */
+        }
+
+        .animation-box {
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            margin: 20px auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .animation-box:hover {
+            background-color: #0056b3;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        p {
+            color: #666;
+            font-size: 0.9em;
+            flex-grow: 1; /* Allows text to take available space */
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* --- CSS Animations --- */
+
+        /* 1. Basic Transform (Scale) */
+        .scale-box {
+            transition: transform 0.3s ease-in-out;
+        }
+        .scale-box.animate {
+            transform: scale(1.2);
+        }
+
+        /* 2. Basic Transform (Rotate) */
+        .rotate-box {
+            transition: transform 0.5s ease-in-out;
+        }
+        .rotate-box.animate {
+            transform: rotate(360deg);
+        }
+
+        /* 3. Keyframes (Pulse) */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pulse-box.animate {
+            animation: pulse 1s infinite alternate;
+        }
+
+        /* 4. Keyframes (Slide In/Out) */
+        @keyframes slideIn {
+            from { transform: translateX(-150%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(150%); opacity: 0; }
+        }
+        .slide-box {
+            overflow: hidden; /* Hide overflow during slide */
+        }
+        .slide-box > .inner-box {
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+        }
+        .slide-box.show .inner-box {
+            animation: slideIn 0.6s forwards;
+        }
+        .slide-box.hide .inner-box {
+            animation: slideOut 0.6s forwards;
+        }
+
+
+        /* 5. Multiple Transitions */
+        .multi-transition-box {
+            transition: background-color 0.4s ease, transform 0.4s ease, border-radius 0.4s ease;
+        }
+        .multi-transition-box.animate {
+            background-color: #ffc107;
+            transform: translateX(20px) scale(0.9);
+            border-radius: 50%;
+        }
+
+        /* --- JavaScript Driven Animations (more complex interactions/sequencing) --- */
+
+        /* 6. Dynamic Opacity with JS */
+        .opacity-box {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* 7. Position Animation with JS (e.g., using Web Animations API or requestAnimationFrame) */
+        .position-box {
+            position: relative; /* Needed for `left` property */
+            left: 0;
+            transition: left 0.7s ease-out; /* Add CSS transition for smoothness */
+        }
+
+        /* 8. Chained/Sequenced Animations (JS handles timing) */
+        /* No specific CSS for chained, JS manipulates properties sequentially */
+
+        /* 9. SVG Animation (simple example, more complex handled via JS libraries or direct SVG properties) */
+        .svg-animation-container {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .svg-circle {
+            fill: #dc3545;
+            transition: fill 0.5s ease;
+            transform-origin: center;
+            transition: transform 0.5s ease;
+        }
+        .svg-circle.animate {
+            fill: #28a745;
+            transform: rotate(180deg) scale(1.2);
+        }
+
+        /* 10. Spring/Physics-based (Requires a library like GreenSock or Popmotion, but we can simulate with CSS ease-out) */
+        .spring-box {
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* A "springy" cubic-bezier */
+        }
+        .spring-box.animate {
+            transform: translateY(-20px);
+        }
+        .spring-box.animate.reset {
+            transform: translateY(0px);
+        }
+
+        /* 11. Scroll-triggered (JS for intersection observer) */
+        .scroll-trigger-section {
+            height: 400px; /* Make it tall enough to scroll */
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 1.5em;
+            color: #555;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .scroll-trigger-box {
+            width: 150px;
+            height: 150px;
+            background-color: #6f42c1;
+            border-radius: 10px;
+            transform: translateY(50px) opacity(0);
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+            margin-top: 20px;
+        }
+
+        .scroll-trigger-box.visible {
+            transform: translateY(0) opacity(1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="animation-container">
+        <h3>1. Basic CSS Transform (Scale)</h3>
+        <p>Hampers by adding or removing a CSS class. Uses <code>transition</code> and <code>transform: scale()</code>.</p>
+        <div class="animation-box scale-box" id="scaleBox">Scale Me</div>
+        <button onclick="toggleCssClass('scaleBox', 'animate')">Toggle Animation</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>2. Basic CSS Transform (Rotate)</h3>
+        <p>Uses <code>transition</code> and <code>transform: rotate()</code> for a smooth rotation.</p>
+        <div class="animation-box rotate-box" id="rotateBox">Rotate Me</div>
+        <button onclick="toggleCssClass('rotateBox', 'animate')">Toggle Animation</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>3. CSS Keyframes (Pulse)</h3>
+        <p>Defines animation steps with <code>@keyframes</code> for a continuous pulsing effect.</p>
+        <div class="animation-box pulse-box" id="pulseBox">Pulse Me</div>
+        <button onclick="toggleCssClass('pulseBox', 'animate')">Toggle Animation</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>4. CSS Keyframes (Slide In/Out)</h3>
+        <p>Uses separate keyframes for entering and exiting, controlled by class toggling.</p>
+        <div class="animation-box slide-box" id="slideBox">
+            <div class="animation-box inner-box" style="margin:0; background-color: #17a2b8; ">Slide Me</div>
+        </div>
+        <button onclick="toggleSlideAnimation()">Toggle Slide</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>5. Multiple CSS Transitions</h3>
+        <p>Combines several CSS properties in one <code>transition</code> for complex changes.</p>
+        <div class="animation-box multi-transition-box" id="multiTransitionBox">Multi-Change</div>
+        <button onclick="toggleCssClass('multiTransitionBox', 'animate')">Toggle Animation</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>6. Dynamic Opacity with JS</h3>
+        <p>JavaScript directly manipulates the <code>opacity</code> style property.</p>
+        <div class="animation-box opacity-box" id="opacityBox">Fade Me</div>
+        <button onclick="fadeToggle()">Toggle Fade</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>7. Position Animation with JS</h3>
+        <p>JavaScript increments/decrements the <code>left</code> property. CSS transition smooths it.</p>
+        <div class="animation-box position-box" id="positionBox">Move Me</div>
+        <button onclick="moveBox()">Move Box</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>8. Chained/Sequenced Animations (JS)</h3>
+        <p>JavaScript uses <code>setTimeout</code> to execute animations in a specific order.</p>
+        <div class="animation-box" id="chainedBox" style="background-color: #ff8c00;">Chained</div>
+        <button onclick="runChainedAnimation()">Run Chained</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>9. SVG Animation with JS/CSS</h3>
+        <p>Manipulates SVG properties like <code>fill</code> and <code>transform</code> for vector graphics.</p>
+        <div class="svg-animation-container">
+            <svg width="80" height="80" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" class="svg-circle" id="svgCircle"></circle>
+            </svg>
+        </div>
+        <button onclick="toggleCssClass('svgCircle', 'animate')">Toggle SVG</button>
+    </div>
+
+    <div class="animation-container">
+        <h3>10. "Springy" Animation (Simulated CSS)</h3>
+        <p>Achieved with a custom <code>cubic-bezier</code> for a bouncy effect.</p>
+        <div class="animation-box spring-box" id="springBox">Spring Me</div>
+        <button onclick="toggleSpringAnimation()">Toggle Spring</button>
+    </div>
+
+    <div class="scroll-trigger-section">
+        <h3>11. Scroll-Triggered Animation</h3>
+        <p>Watch this box animate when it enters the viewport!</p>
+        <div class="scroll-trigger-box" id="scrollTriggerBox"></div>
+    </div>
+
+
+    <script>
+        // Helper function to toggle a CSS class
+        function toggleCssClass(elementId, className) {
+            document.getElementById(elementId).classList.toggle(className);
+        }
+
+        // For Slide In/Out
+        let slideState = 'show';
+        function toggleSlideAnimation() {
+            const slideBox = document.getElementById('slideBox');
+            if (slideState === 'show') {
+                slideBox.classList.remove('show');
+                slideBox.classList.add('hide');
+                slideState = 'hide';
+            } else {
+                slideBox.classList.remove('hide');
+                slideBox.classList.add('show');
+                slideState = 'show';
+            }
+        }
+
+        // For Dynamic Opacity with JS
+        let isFaded = false;
+        function fadeToggle() {
+            const opacityBox = document.getElementById('opacityBox');
+            if (isFaded) {
+                opacityBox.style.opacity = '1';
+            } else {
+                opacityBox.style.opacity = '0.2';
+            }
+            isFaded = !isFaded;
+        }
+
+        // For Position Animation with JS
+        let isMoved = false;
+        function moveBox() {
+            const positionBox = document.getElementById('positionBox');
+            if (isMoved) {
+                positionBox.style.left = '0px';
+            } else {
+                positionBox.style.left = '80px'; // Move 80px to the right
+            }
+            isMoved = !isMoved;
+        }
+
+        // For Chained/Sequenced Animations (JS)
+        function runChainedAnimation() {
+            const chainedBox = document.getElementById('chainedBox');
+            chainedBox.style.transition = 'transform 0.5s ease-out, background-color 0.5s ease-out';
+
+            chainedBox.style.transform = 'translateX(50px)'; // Step 1
+            chainedBox.style.backgroundColor = '#ffc107';
+
+            setTimeout(() => {
+                chainedBox.style.transform = 'translateY(50px) scale(1.1)'; // Step 2
+                chainedBox.style.backgroundColor = '#17a2b8';
+            }, 600); // After 0.6 seconds
+
+            setTimeout(() => {
+                chainedBox.style.transform = 'translate(0, 0) scale(1)'; // Step 3 (reset)
+                chainedBox.style.backgroundColor = '#ff8c00';
+            }, 1200); // After 1.2 seconds
+        }
+
+        // For Springy Animation
+        let isSprung = false;
+        function toggleSpringAnimation() {
+            const springBox = document.getElementById('springBox');
+            if (isSprung) {
+                springBox.classList.remove('animate');
+                springBox.classList.add('reset'); // Add a reset class if needed for reverse
+                 setTimeout(() => {
+                    springBox.classList.remove('reset');
+                }, 800); // Remove reset after animation
+            } else {
+                springBox.classList.add('animate');
+            }
+            isSprung = !isSprung;
+        }
+
+        // For Scroll-Triggered Animation
+        const scrollTriggerBox = document.getElementById('scrollTriggerBox');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    scrollTriggerBox.classList.add('visible');
+                } else {
+                    scrollTriggerBox.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the element is visible
+        });
+
+        observer.observe(scrollTriggerBox);
+
+    </script>
+</body>
+</html>

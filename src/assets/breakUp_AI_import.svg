@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1086.1">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill: none;
+      }
+
+      .cls-9 {
+        mask: url(#mask);
+      }
+
+      .cls-10 {
+        font-family: AnaphoraStencil-Extrabold, 'Anaphora Stencil';
+        font-size: 12px;
+      }
+
+      .cls-10, .cls-11 {
+        font-weight: 700;
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17 {
+        fill: #fff;
+      }
+
+      .cls-10, .cls-18, .cls-19, .cls-7, .cls-16, .cls-17 {
+        isolation: isolate;
+      }
+
+      .cls-11 {
+        font-family: MyriadPro-Bold, 'Myriad Pro';
+      }
+
+      .cls-11, .cls-20 {
+        font-size: 21px;
+      }
+
+      .cls-18, .cls-17 {
+        opacity: .43;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-4, .cls-5, .cls-7, .cls-8 {
+        stroke: #fff;
+      }
+
+      .cls-2, .cls-5 {
+        stroke-width: 6px;
+      }
+
+      .cls-3 {
+        stroke: #1f1f21;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-width: 4px;
+      }
+
+      .cls-12, .cls-5 {
+        opacity: .6;
+      }
+
+      .cls-13, .cls-21 {
+        opacity: .9;
+      }
+
+      .cls-22 {
+        mask: url(#mask-1);
+      }
+
+      .cls-23 {
+        font-size: 18px;
+      }
+
+      .cls-23, .cls-20 {
+        fill: #fcfcfc;
+      }
+
+      .cls-23, .cls-15 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-24 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-4, .cls-7 {
+        stroke-linecap: round;
+      }
+
+      .cls-6 {
+        stroke: #238dff;
+        stroke-width: 3px;
+      }
+
+      .cls-25 {
+        fill: #26252a;
+      }
+
+      .cls-20 {
+        font-family: Ayuthaya, Ayuthaya;
+      }
+
+      .cls-26 {
+        letter-spacing: -.018em;
+      }
+
+      .cls-15 {
+        font-size: 14px;
+      }
+
+      .cls-7 {
+        opacity: .7;
+        stroke-width: 5px;
+      }
+
+      .cls-27 {
+        fill: #238dff;
+      }
+
+      .cls-28 {
+        fill: #1f1f21;
+      }
+
+      .cls-29 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-8 {
+        stroke-width: 2px;
+      }
+
+      .cls-16 {
+        opacity: .8;
+      }
+    </style>
+    <mask id="mask" x="24.763" y="10.086" width="1920" height="1080" maskUnits="userSpaceOnUse">
+      <g id="Layer_11Opacity_Mask" data-name="Layer 11Opacity Mask">
+        <image id="Layer_11Opacity_Mask-2" data-name="Layer 11Opacity Mask" width="1920" height="1080" transform="translate(24.763 10.086)" xlink:href="breakUp_AI_import-1.png"/>
+      </g>
+    </mask>
+    <mask id="mask-1" x="0" y="0" width="1920" height="1080" maskUnits="userSpaceOnUse">
+      <g id="Layer_12Opacity_Mask" data-name="Layer 12Opacity Mask">
+        <image id="Layer_12Opacity_Mask-2" data-name="Layer 12Opacity Mask" width="1920" height="1080" xlink:href="breakUp_AI_import-2.png"/>
+      </g>
+    </mask>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="1055.813" y="839.556" width="142.624" height="142.624" rx="17.18" ry="17.18"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-1" x="746.75" y="747.763" width="142.624" height="142.624" rx="17.18" ry="17.18"/>
+    </clipPath>
+  </defs>
+  <g id="Obligatory_Break_up_Album" data-name="Obligatory Break up Album" class="cls-19">
+    <g class="cls-9">
+      <g id="Layer_11_Image" data-name="Layer 11 Image">
+        <rect x="728.299" y="14.071" width="488.606" height="1072.029" rx="62.399" ry="62.399"/>
+        <path class="cls-25" d="M790.267,14.305h363.807c34.439,0,62.399,27.96,62.399,62.399v71.653h-488.606v-71.653c0-34.439,27.96-62.399,62.399-62.399Z"/>
+        <rect class="cls-14" x="1065.711" y="46.252" width="5.422" height="10.495" rx="2.698" ry="2.698"/>
+        <rect class="cls-14" x="1073.624" y="43.383" width="5.422" height="13.365" rx="2.698" ry="2.698"/>
+        <rect class="cls-12" x="1081.538" y="40.557" width="5.422" height="16.191" rx="2.698" ry="2.698"/>
+        <rect class="cls-12" x="1089.452" y="38.38" width="5.422" height="18.367" rx="2.698" ry="2.698"/>
+        <g>
+          <path class="cls-5" d="M1102.023,44.506c7.564-7.564,19.829-7.564,27.393,0"/>
+          <path class="cls-2" d="M1106.652,49.908c5.119-5.119,13.419-5.119,18.538,0"/>
+          <path class="cls-14" d="M1122.011,53.056c-3.363-3.363-8.816-3.363-12.179,0l6.09,5.415,6.09-5.415Z"/>
+        </g>
+        <rect class="cls-12" x="1140.486" y="37.731" width="45.953" height="19.942" rx="8.816" ry="8.816"/>
+        <rect class="cls-14" x="1140.486" y="37.658" width="38.054" height="19.942" rx="8.816" ry="8.816"/>
+        <rect class="cls-12" x="1187.425" y="44.779" width="4.11" height="5.846" rx="2.055" ry="2.055"/>
+        <text class="cls-11" transform="translate(775.354 55.123)"><tspan x="0" y="0">10:21</tspan></text>
+        <polyline class="cls-6" points="760.123 127.093 746.749 113.719 760.123 100.345"/>
+        <rect class="cls-6" x="1146.476" y="102.937" width="32.064" height="20.409" rx="6.759" ry="6.759"/>
+        <path class="cls-6" d="M1178.744,113.651l10.475-8.565c.057-.047.143-.006.143.068v17.13c0,.074-.086.114-.143.068l-10.475-8.565c-.043-.035-.043-.1,0-.135Z"/>
+        <g id="Layer_1-2" data-name="Layer 1-2">
+          <circle class="cls-28" cx="761.759" cy="1026.444" r="20.785"/>
+          <g>
+            <line class="cls-8" x1="761.759" y1="1013.791" x2="761.759" y2="1039.104"/>
+            <line class="cls-8" x1="749.106" y1="1026.444" x2="774.419" y2="1026.444"/>
+          </g>
+        </g>
+        <rect class="cls-3" x="794.776" y="1006.246" width="353.642" height="41.57" rx="20.785" ry="20.785"/>
+      </g>
+    </g>
+    <g id="Group_3" data-name="Group 3">
+      <g id="Rectangle_3" data-name="Rectangle 3">
+        <rect class="cls-25" x="740.263" y="214.339" width="252" height="34" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="Stop_what_Don_t_say_that." data-name="Stop what? Don&amp;apos;t say that.">
+        <text class="cls-23" transform="translate(755.763 237.376)"><tspan x="0" y="0">Stop what? Don&apos;t say that.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_4" data-name="Group 4">
+      <g id="Rectangle_3-2" data-name="Rectangle 3">
+        <rect class="cls-27" x="891.606" y="165.642" width="300" height="34" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="This_is_killing_me_but_I_have_to_stop." data-name="This is killing me, but I have to stop.">
+        <text id="This_is_killing_me_but_I_have_to_stop.-2" data-name="This is killing me, but I have to stop." class="cls-23" transform="translate(903.196 189.153) rotate(.044)"><tspan x="0" y="0">This is killing me, but I have to stop.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_5" data-name="Group 5">
+      <g id="Rectangle_3-3" data-name="Rectangle 3">
+        <rect class="cls-27" x="900.606" y="263.642" width="300" height="34" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="I_can_t_keep_pretending_we_re_okay." data-name="I can&amp;apos;t keep pretending we&amp;apos;re okay.">
+        <text id="I_can_t_keep_pretending_we_re_okay.-2" data-name="I can&amp;apos;t keep pretending we&amp;apos;re okay." class="cls-23" transform="translate(912.751 285.344) rotate(.044)"><tspan x="0" y="0">I can&apos;t keep pretending we&apos;re okay.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_6" data-name="Group 6">
+      <g id="Rectangle_3-4" data-name="Rectangle 3">
+        <rect class="cls-27" x="894.763" y="361.083" width="300" height="82" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="I_have_been_trying_But_I_feel_like_I_m_the_only_one._I_feel_so" data-name="I have been trying! But I feel like I&amp;apos;m the only one. I feel so">
+        <text id="I_have_been_trying_But_I_feel_like_I_m_the_only_one._I_feel_so-2" data-name="I have been trying! But I feel like I&amp;apos;m the only one. I feel so" class="cls-23" transform="translate(918.633 384.128) rotate(.655) skewX(.611)"><tspan x="0" y="0">I have been trying! But I feel like</tspan><tspan x="0" y="21.6">I&apos;m the only one. I feel so </tspan><tspan x="0" y="43.2">incredibly alone.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_7" data-name="Group 7">
+      <g id="Rectangle_3-5" data-name="Rectangle 3">
+        <rect class="cls-27" x="898.938" y="506.904" width="300" height="82" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="Dramatic_I_m_heartbroken_And_I_m_angry_that_you_can_t_even" data-name="Dramatic? I&amp;apos;m heartbroken! And  I&amp;apos;m angry that you can&amp;apos;t even">
+        <text id="Dramatic_I_m_heartbroken_And_I_m_angry_that_you_can_t_even-2" data-name="Dramatic? I&amp;apos;m heartbroken! And  I&amp;apos;m angry that you can&amp;apos;t even" class="cls-23" transform="translate(922.808 529.949) rotate(.655) skewX(.611)"><tspan x="0" y="0">Dramatic? I&apos;m heartbroken! And </tspan><tspan x="0" y="21.6">I&apos;m angry that you can&apos;t even </tspan><tspan x="0" y="43.2">see it.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_8" data-name="Group 8">
+      <g id="Rectangle_3-6" data-name="Rectangle 3">
+        <rect class="cls-27" x="898.755" y="652.9" width="300" height="39" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="I_wish_I_didn_t_have_to._I_m_so_sorry." data-name="I wish I didn&amp;apos;t have to. I&amp;apos;m so sorry.">
+        <text id="I_wish_I_didn_t_have_to._I_m_so_sorry.-2" data-name="I wish I didn&amp;apos;t have to. I&amp;apos;m so sorry." class="cls-23" transform="translate(914.055 675.943) rotate(.655) skewX(.611)"><tspan x="0" y="0">I wish I didn&apos;t have to. I&apos;m so sorry.</tspan></text>
+        <text id="I_wish_I_didn_t_have_to._I_m_so_sorry.-3" data-name="I wish I didn&amp;apos;t have to. I&amp;apos;m so sorry." class="cls-23" transform="translate(1074.572 1030.3) rotate(.655) skewX(.611)"><tspan x="0" y="0">It’s over.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_9" data-name="Group 9">
+      <g id="Rectangle_3-7" data-name="Rectangle 3">
+        <rect class="cls-25" x="746.749" y="312.642" width="300" height="34" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="We_could_be_okay_If_you_d_just_try." data-name="We could be okay! If you&amp;apos;d just try.">
+        <text id="We_could_be_okay_If_you_d_just_try.-2" data-name="We could be okay! If you&amp;apos;d just try." class="cls-23" transform="translate(758.893 334.344) rotate(.044)"><tspan x="0" y="0">We could be okay! If you&apos;d just try.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_10" data-name="Group 10">
+      <g id="Rectangle_3-8" data-name="Rectangle 3">
+        <rect class="cls-25" x="746.763" y="458.64" width="322" height="34" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="That_s_not_true._You_re_being_dramatic." data-name="That&amp;apos;s not true. You&amp;apos;re being dramatic.">
+        <text id="That_s_not_true._You_re_being_dramatic.-2" data-name="That&amp;apos;s not true. You&amp;apos;re being dramatic." class="cls-23" transform="translate(760.751 479.906) rotate(.044)"><tspan x="0" y="0">That&apos;s not true. You&apos;re being dramatic.</tspan></text>
+      </g>
+    </g>
+    <g id="Group_11" data-name="Group 11">
+      <g id="Rectangle_3-9" data-name="Rectangle 3">
+        <rect class="cls-25" x="746.75" y="603.983" width="203" height="34" rx="14.5" ry="14.5"/>
+      </g>
+      <g id="Don_t_do_this._Please." data-name="Don&amp;apos;t do this. Please.">
+        <text class="cls-23" transform="translate(760.739 627.248) rotate(.044)"><tspan x="0" y="0">Don&apos;t do this. Please.</tspan></text>
+      </g>
+    </g>
+    <g class="cls-22">
+      <g id="Layer_12_Image" data-name="Layer 12 Image">
+        <image id="Layer_12_Image-2" data-name="Layer 12 Image" width="1920" height="1080" xlink:href="breakUp_AI_import-3.png"/>
+      </g>
+    </g>
+    <g id="_Kristina_Driggs_Image" data-name=" Kristina Driggs Image">
+      <image id="_Kristina_Driggs_Image-2" data-name=" Kristina Driggs Image" width="171" height="25" transform="translate(878.257 119.586)" xlink:href="breakUp_AI_import-4.png"/>
+    </g>
+    <g id="Obligatory_Break_up_Album_Image" data-name="Obligatory Break up Album Image">
+      <g id="Layer_1-2-2" data-name="Layer 1-2">
+        <circle class="cls-27" cx="1181.435" cy="1026.448" r="20.795"/>
+        <g>
+          <line class="cls-8" x1="1181.467" y1="1040.088" x2="1181.467" y2="1013.974"/>
+          <polyline class="cls-8" points="1169.557 1024.693 1181.435 1012.815 1193.321 1024.693"/>
+        </g>
+      </g>
+      <line class="cls-4" x1="884.202" y1="1072.589" x2="1060.139" y2="1072.589"/>
+      <text class="cls-20" transform="translate(808.068 732.705)"><tspan x="0" y="0">Obligatory Break up Album</tspan></text>
+      <g>
+        <g class="cls-29">
+          <image width="973" height="972" transform="translate(1055.813 839.629) scale(.147)" xlink:href="../../Images/Obligatory Break up Album/heart.png"/>
+        </g>
+        <rect class="cls-18" x="1055.812" y="839.556" width="142.624" height="142.624" rx="17.18" ry="17.18"/>
+        <path class="cls-21" d="M1055.863,951.052h142.624v14.258c0,9.403-7.634,17.038-17.038,17.038h-108.548c-9.403,0-17.038-7.634-17.038-17.038v-14.258h0Z"/>
+        <text class="cls-15" transform="translate(1058.612 970.477)"><tspan x="0" y="0">Cold Blooded </tspan><tspan class="cls-26" x="87.951" y="0">W</tspan><tspan x="100.912" y="0">oman</tspan></text>
+      </g>
+      <g>
+        <g class="cls-24">
+          <image width="973" height="973" transform="translate(746.75 747.763) scale(.147)" xlink:href="../../Images/Obligatory Break up Album/blues.png"/>
+        </g>
+        <path class="cls-21" d="M746.75,859.091h142.624v14.258c0,9.403-7.634,17.038-17.038,17.038h-108.548c-9.403,0-17.038-7.634-17.038-17.038v-14.258h0Z"/>
+        <rect class="cls-18" x="746.75" y="747.763" width="142.624" height="142.624" rx="17.18" ry="17.18"/>
+        <text class="cls-15" transform="translate(771.728 880.231)"><tspan x="0" y="0">Sing</tspan><tspan class="cls-26" x="28.021" y="0"> </tspan><tspan x="31.657" y="0">The Blues</tspan></text>
+      </g>
+    </g>
+    <rect id="womanPause" class="cls-13" x="1096.76" y="865.104" width="60.727" height="60.727" rx="11.338" ry="11.338"/>
+    <g id="womanPlay">
+      <path class="cls-14" d="M1157.049,901.927l-40.902,23.616c-4.97,2.871-11.186-.718-11.186-6.459v-47.233c0-5.741,6.215-9.33,11.186-6.459l40.902,23.616c4.97,2.871,4.97,10.047,0,12.918Z"/>
+    </g>
+    <g id="womanCircle">
+      <path class="cls-14" d="M1127.124,855.217c22.194,0,40.251,18.057,40.251,40.251s-18.057,40.251-40.251,40.251-40.251-18.057-40.251-40.251,18.057-40.251,40.251-40.251M1127.124,850.787c-24.675,0-44.681,20.006-44.681,44.681s20.006,44.681,44.681,44.681,44.681-20.006,44.681-44.681-20.001-44.681-44.681-44.681h0Z"/>
+    </g>
+    <rect id="bluesPause" class="cls-13" x="788.824" y="773.46" width="60.727" height="60.727" rx="11.338" ry="11.338"/>
+    <g id="bluesPlay">
+      <path class="cls-14" d="M849.112,809.56l-40.902,23.616c-4.97,2.871-11.186-.718-11.186-6.459v-47.233c0-5.741,6.215-9.33,11.186-6.459l40.902,23.616c4.97,2.871,4.97,10.047,0,12.918Z"/>
+    </g>
+    <g id="bluesCircle">
+      <path class="cls-14" d="M819.187,762.85c22.194,0,40.251,18.057,40.251,40.251s-18.057,40.251-40.251,40.251-40.251-18.057-40.251-40.251,18.057-40.251,40.251-40.251M819.187,758.42c-24.675,0-44.681,20.006-44.681,44.681s20.006,44.681,44.681,44.681,44.681-20.006,44.681-44.681-20.001-44.681-44.681-44.681h0Z"/>
+    </g>
+    <g id="bluesPlayContainer">
+      <rect id="bluesplayHeadContainerBackground" class="cls-17" x="906.102" y="784.804" width="292.836" height="28.158" rx="14.079" ry="14.079"/>
+      <line id="bluesline" class="cls-7" x1="925.592" y1="798.883" x2="1149.388" y2="798.883"/>
+      <g id="bluesplayTime" class="cls-19">
+        <text class="cls-10" transform="translate(1159.078 802.923)"><tspan x="0" y="0">00:00</tspan></text>
+      </g>
+      <circle id="bluesplayHead" class="cls-16" cx="926.57" cy="799.519" r="5.477"/>
+    </g>
+    <g id="womanPlayContainer">
+      <rect id="womanplayHeadContainerBackground" class="cls-17" x="746.75" y="921.592" width="292.836" height="28.158" rx="14.079" ry="14.079"/>
+      <line id="womanline" class="cls-7" x1="766.24" y1="935.671" x2="990.036" y2="935.671"/>
+      <g id="womanplayTime" class="cls-19">
+        <text class="cls-10" transform="translate(999.727 939.711)"><tspan x="0" y="0">00:00</tspan></text>
+      </g>
+      <circle id="womanplayHead" class="cls-16" cx="767.219" cy="936.307" r="5.477"/>
+    </g>
+  </g>
+</svg>

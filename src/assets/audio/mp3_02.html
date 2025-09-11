@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple MP3 Players</title>
+    <style>
+        /* Styles for the first MP3 player */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            /* Increased gap for separation */
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .player-container {
+            background-color: #00000068;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+
+        .song-list {
+            margin-bottom: 15px;
+        }
+
+        .song-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .song-item:last-child {
+            border-bottom: none;
+        }
+
+        .play-button {
+            background-color: #6a6a6a;
+            color: white;
+            border: none;
+            padding: 5px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .play-button:hover {
+            background-color: #474747;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.32);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .controls button {
+            padding: 5px 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ddd;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .controls button:hover {
+            background-color: #ccc;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            background-color: #eee;
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            background-color: #6b6b6b;
+            height: 100%;
+            width: 0%;
+        }
+
+        .time-display {
+            font-size: 12px;
+            color: #ffffffeb;
+        }
+
+        
+
+        .song-item span {
+            font-size: 16px;
+            color: #ffffffeb;
+        }
+
+        .controls span {
+            font-size: 14px;
+            color: #ffffffeb;
+        }
+
+        .song-list img {
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .controls img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="player-container">
+        <div class="song-list">
+            <div class="song-item">
+                <span>Gloomy Tune</span>
+                <img class="play-button" data-player="player1" data-src="/audio/Gloomy Tune_01.mp3"
+                    src="/images/play.svg" alt="play button">
+
+            </div>
+
+            <div class="song-item">
+                <span>Love Merry Go Round</span>
+                <img class="play-button" data-player="player1" data-src="/audio/Love Merry Go Round_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+            <div class="song-item">
+                <span>Waves of Memory</span>
+                <img class="play-button" data-player="player1" data-src="/audio/Waves Of Memory_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+            <div class="song-item">
+                <span>Boring Love Song</span>
+                <img class="play-button" data-player="player1" data-src="/audio/Boring Love Song_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+            <div class="song-item">
+                <span>Best Friends</span>
+                <img class="play-button" data-player="player1" data-src="/audio/Best Friends_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="prev-btn" data-player="player1">
+                <img src="/images/backward.svg" alt="prev-song">
+            </button>
+            <button class="play-pause-btn" data-player="player1">
+                <img src="/images/play.svg" alt="play button">
+            </button>
+            <button class="next-btn" data-player="player1">
+                <img src="/images/forward.svg" alt="next button">
+            </button>
+            <div class="progress-container" data-player="player1">
+                <div class="progress-bar" data-player="player1"></div>
+            </div>
+            <span class="current-time" data-player="player1">0:00</span><span>/</span><span class="duration"
+                data-player="player1">0:00</span>
+        </div>
+
+        <audio id="player1-audio"></audio>
+    </div>
+
+    <div class="player-container">
+        <div class="song-list">
+            <div class="song-item">
+                <span>Here Be Dragons</span>
+                <img class="play-button" data-player="player2" data-src="/audio/Here Be Dragons_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+            <div class="song-item">
+                <span>Sea Shanty Blues</span>
+                <img class="play-button" data-player="player2" data-src="/audio/Sea Shanty Blues_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+            <div class="song-item">
+                <span>A Mermaid's Tale </span>
+                <img class="play-button" data-player="player2" data-src="/audio/A Mermaid's Tale_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+            <div class="song-item">
+                <span>Carry My Love Over the Sea</span>
+                <img class="play-button" data-player="player2" data-src="/audio/Carry My Love Over the Sea_01.mp3"
+                    src="/images/play.svg" alt="play button">
+            </div>
+
+
+        </div>
+
+        <div class="controls">
+            <button class="prev-btn" data-player="player2">
+                <img src="/images/backward.svg" alt="prev-song">
+            </button>
+            <button class="play-pause-btn" data-player="player2">
+                <img src="/images/play.svg" alt="play button">
+            </button>
+            <button class="next-btn" data-player="player2">
+                <img src="/images/forward.svg" alt="next button">
+            </button>
+            <div class="progress-container" data-player="player2">
+                <div class="progress-bar" data-player="player2"></div>
+            </div>
+            <span class="current-time" data-player="player2">0:00</span><span>/</span><span class="duration"
+                data-player="player2">0:00</span>
+        </div>
+
+        <audio id="player2-audio"></audio>
+    </div>
+
+    <script>
+        function setupMediaPlayer(playerId) {
+            const audioPlayer = document.getElementById(`${playerId}-audio`);
+            const playPauseBtn = document.querySelector(`.play-pause-btn[data-player="${playerId}"]`);
+            const prevBtn = document.querySelector(`.prev-btn[data-player="${playerId}"]`);
+            const nextBtn = document.querySelector(`.next-btn[data-player="${playerId}"]`);
+            const progressBar = document.querySelector(`.progress-bar[data-player="${playerId}"]`);
+            const progressContainer = document.querySelector(`.progress-container[data-player="${playerId}"]`);
+            const currentTimeDisplay = document.querySelector(`.current-time[data-player="${playerId}"]`);
+            const durationDisplay = document.querySelector(`.duration[data-player="${playerId}"]`);
+            const songButtons = document.querySelectorAll(`.play-button[data-player="${playerId}"]`);
+            let currentSongIndex = -1;
+            let isPlaying = false;
+            let songs = [];
+
+            songButtons.forEach((button, index) => {
+                const songSrc = button.getAttribute('data-src');
+                songs.push(songSrc);
+                button.addEventListener('click', () => {
+                    loadSong(index);
+                    playSong();
+                });
+            });
+
+            function loadSong(index) {
+                if (index >= 0 && index < songs.length) {
+                    currentSongIndex = index;
+                    audioPlayer.src = songs[currentSongIndex];
+                }
+            }
+
+            function pauseSong() {
+                audioPlayer.pause();
+                isPlaying = false;
+                playPauseBtn.innerHTML = '<img src="/images/play.svg" alt="Play">';
+                // Ensure you have an image file named "play_button.png" in the same directory
+                // or provide the correct path to your play button image.
+            }
+
+            function playSong() {
+                audioPlayer.play();
+                isPlaying = true;
+                playPauseBtn.innerHTML = '<img src="/images/pause.svg" alt="Pause">';
+                // Similarly, ensure you have a "pause_button.png" image.
+            }
+
+            //function playSong() {
+            //  audioPlayer.play();
+            //  isPlaying = true;
+            //   playPauseBtn.textContent = '⏸️';
+            //   }
+
+            //  function pauseSong() {
+            //     audioPlayer.pause();
+            //     isPlaying = false;
+            //     playPauseBtn.textContent = '▶️';
+            //  }
+
+            playPauseBtn.addEventListener('click', () => {
+                if (currentSongIndex !== -1) {
+                    if (isPlaying) {
+                        pauseSong();
+                    } else {
+                        playSong();
+                    }
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentSongIndex > 0) {
+                    loadSong(currentSongIndex - 1);
+                    playSong();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSongIndex < songs.length - 1) {
+                    loadSong(currentSongIndex + 1);
+                    playSong();
+                }
+            });
+
+            audioPlayer.addEventListener('loadedmetadata', () => {
+                const duration = formatTime(audioPlayer.duration);
+                durationDisplay.textContent = duration;
+            });
+
+            audioPlayer.addEventListener('timeupdate', () => {
+                const currentTime = formatTime(audioPlayer.currentTime);
+                currentTimeDisplay.textContent = currentTime;
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+            });
+
+            progressContainer.addEventListener('click', (e) => {
+                const width = progressContainer.offsetWidth;
+                const clickX = e.offsetX;
+                const duration = audioPlayer.duration;
+                audioPlayer.currentTime = (clickX / width) * duration;
+            });
+
+            audioPlayer.addEventListener('ended', () => {
+                if (currentSongIndex < songs.length - 1) {
+                    loadSong(currentSongIndex + 1);
+                    playSong();
+                } else {
+                    pauseSong();
+                    audioPlayer.currentTime = 0;
+                    progressBar.style.width = '0%';
+                    currentTimeDisplay.textContent = '0:00';
+                    currentSongIndex = -1;
+                }
+            });
+
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, '0');
+                return `${minutes}:${remainingSeconds}`;
+            }
+        }
+
+        setupMediaPlayer('player1');
+        setupMediaPlayer('player2');
+    </script>
+</body>
+
+</html>

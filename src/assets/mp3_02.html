@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>mp3_02
+    </title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/dxk1prw.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Anaphora Stencil', sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+
+
+
+
+        .player svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+
+
+
+        #music {
+            width: 100%;
+            height: 100vh;
+            background-image: url('/images/Hero.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative
+        }
+
+        .musicPlayer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            /* or your preferred width */
+            margin: 0 auto;
+            background-color: hsla(0, 0%, 11%, 0.435);
+            border-radius: 40px;
+            padding: 20px;
+        }
+
+        .musicPlayer .albumImg {
+            width: 100%;
+            position: relative;
+            max-width: 350px;
+            /* slightly smaller than .musicPlayer max-width */
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .musicPlayer .albumImg img {
+
+            width: 100%;
+
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 16px;
+        }
+
+        .musicPlayer .player {
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        #dragons {
+            width: 100%;
+            height: 100vh;
+            background-image: url('/images/Background copy.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+        }
+
+        .dragonsPlayer .player {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        .dragonsPlayer {
+            position: relative;
+            top: -20%;
+            left: 5%;
+            background-color: hsla(0, 0%, 40%, 0.435);
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            width: fit-content;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 15px 15px;
+        }
+
+        .dragonsPlayer button {
+            display: flex;
+            width: 100%;
+            font-family: 'Anaphora Stencil', sans-serif;
+            border: 1px solid #fff;
+            background-color: transparent;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            text-align: left;
+            padding: 8px 16px;
+            border-radius: 10px;
+
+
+        }
+
+        .dragonsPlayer {
+            padding: 20px;
+            gap: 10px;
+        }
+
+        .dragonsPlayer .song {
+            width: 100%;
+        }
+
+        #debut {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/images/Background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .debut-buttons {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 15px;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 380px;
+            box-sizing: border-box;
+            background-color: hsla(0, 0%, 57%, 0.435);
+            overflow: hidden;
+        }
+
+        .debut-buttons .song {
+            width: 100%;
+        }
+
+        .debut-buttons button {
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 10px;
+            text-align: left;
+            padding: 8px 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .debut-buttons button {
+            font-family: 'Anaphora Stencil', sans-serif;
+            border: 1px solid #fff;
+            background-color: transparent;
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .debut-player {
+            position: absolute;
+            left: 50%;
+            bottom: 32px;
+            transform: translateX(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .debut-player .player {
+            width: 100%;
+            max-width: 380px;
+        }
+
+
+        /* PHONE LAYOUT */
+        .phone {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: stretch;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            margin: 0 auto;
+            border-radius: 40px;
+            background-color: hwb(0 0% 100%);
+            box-sizing: border-box;
+            overflow: hidden;
+            gap: 0;
+        }
+
+        .phone-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background: #26252a;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .phone-middle {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            overflow-y: auto;
+            padding: 12px 8px 0 8px;
+            gap: 2px;
+        }
+
+        .phone-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+            margin-top: auto;
+            padding-bottom: 20px;
+            /* This pushes it to the bottom */
+        }
+
+        .phone-bottom img {
+            width: 90%;
+            height: auto;
+            max-height: 150px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* BUBBLES */
+        .phone .blueBubble {
+            background: #238dff;
+            color: #fff;
+            border-radius: 20px;
+            align-self: flex-end;
+            max-width: 80%;
+            padding: 6px 12px;
+            margin: 2px 0;
+            font-size: 1em;
+            word-break: break-word;
+            white-space: pre-line;
+            text-align: left;
+        }
+
+        .phone .greyBubble {
+            background: #26252a;
+            color: #fff;
+            border-radius: 20px;
+            align-self: flex-start;
+            max-width: 80%;
+            padding: 6px 12px;
+            margin: 2px 0;
+            font-size: 1em;
+            word-break: break-word;
+            white-space: pre-line;
+            text-align: left;
+        }
+
+        /* SONG BUTTONS */
+        .phone .song {
+            margin: 2px 0;
+            width: auto;
+            /* Add this */
+            flex: 0 1 auto;
+            /* Add this */
+        }
+
+        .phone .song button {
+            width: auto;
+            /* Change from 100% to auto */
+            min-width: 100px;
+            /* Optional: set a minimum width for consistency */
+            font-size: 1em;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-family: 'Anaphora Stencil', sans-serif;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        /* PLAYER */
+        .phone .player.breakup {
+            width: 90%;
+            max-width: 320px;
+            margin: 12px auto 0 auto;
+            display: block;
+        }
+
+        .song-art {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .song-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 2px 0;
+            justify-content: flex-start;
+        }
+
+        .song-row.right {
+            justify-content: flex-end;
+            /* Pushes content to the right */
+        }
+
+        .song-row.right .song {
+            order: 2;
+            /* Button second */
+        }
+
+        .song-row.right .song-art {
+            order: 1;
+            /* Image first */
+        }
+
+
+        #breakup {
+            position: static;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/images/IMG_1687.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+
+
+
+        .albumImg {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .albumImg .album-btn {
+            width: 30%;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            z-index: 2;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+        }
+
+
+.album-cover {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="debut">
+
+        <div class="debut-buttons">
+            <div class="song"><button data-album="debut" data-track="0">Gloomy Tune</button></div>
+            <div class="song"><button data-album="debut" data-track="1">Love Merry Go Round</button></div>
+            <div class="song"><button data-album="debut" data-track="2">Waves Of Memory</button></div>
+            <div class="song"><button data-album="debut" data-track="3">Boring Love Song</button></div>
+            <div class="song"><button data-album="debut" data-track="4">Best Friends</button></div>
+        </div>
+        <div class="debut-player">
+            <div class="player">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg id="playHeadContainer" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 473.3 200">
+                    <!-- Generator: Adobe Illustrator 29.5.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 137)  -->
+                    <defs>
+                        <style>
+                            .st0,
+                            .st1,
+                            .st2,
+                            .st3,
+                            .st4,
+                            .st5,
+                            .st6 {
+                                isolation: isolate;
+                            }
+
+                            .st7,
+                            .st8,
+                            .st2,
+                            .st4,
+                            .st5,
+                            .st6 {
+                                fill: #fff;
+                            }
+
+
+                            .st3 {
+                                fill: none;
+                                stroke: #fff;
+                                stroke-linecap: round;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5px;
+                            }
+
+                            .st8 {
+                                font-size: 18px;
+                            }
+
+                            .st8,
+                            .st2 {
+                                font-family: AnaphoraStencil-Extrabold, 'Anaphora Stencil';
+                                font-weight: 700;
+                            }
+
+                            .st9,
+                            .st3,
+                            .st4 {
+                                opacity: .7;
+                            }
+
+                            .st2 {
+                                font-size: 14px;
+                            }
+
+                            .st5 {
+                                opacity: .8;
+                            }
+
+                            .st6 {
+                                opacity: .4;
+                            }
+
+                            /* Changes the progress bar color */
+
+                            .progressColored {
+                                stroke: hsla(0, 0%, 58%, 0.851);
+                                stroke-linecap: round;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5px;
+                            }
+
+                            .playHead {
+                                fill: hwb(0 80% 20% / 0.855);
+
+
+                            }
+                        </style>
+                    </defs>
+                    <rect id="playHeadContainerBackground" class="st6" y="14" width="473.3" height="149.1" rx="14.3"
+                        ry="14.3" />
+                    <line id="progress" class="st3" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                    <line class="progressColored" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                    <g id="playTime" class="st0">
+                        <g class="st0">
+                            <text class="st2" transform="translate(424.5 146.2)">
+                                <tspan x="0" y="0">00:00</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <circle class="playHead" class="st5" cx="22" cy="140.3" r="8.9" />
+                    <path id="next" class="st4"
+                        d="M285.3,106.4l-19.4,11.2c-2.4,1.4-5.3-.3-5.3-3.1v-4l-12.3,7.1c-2.4,1.4-5.3-.3-5.3-3.1v-22.3c0-2.7,2.9-4.4,5.3-3l12.3,7.1v-4c0-2.7,2.9-4.4,5.3-3l19.4,11.2c2.4,1.3,2.4,4.8,0,6.1v-.2Z" />
+                    <path id="prev" class="st4"
+                        d="M42.2,100.3l19.4-11.2c2.4-1.4,5.3.3,5.3,3.1v4l12.3-7.1c2.4-1.4,5.3.3,5.3,3.1v22.3c0,2.7-2.9,4.4-5.3,3l-12.3-7.1v4c0,2.7-2.9,4.4-5.3,3l-19.4-11.2c-2.4-1.3-2.4-4.8,0-6.1v.2Z" />
+                    <path id="play" class="st4"
+                        d="M180,107.2l-24.7,14.2c-3,1.7-6.7-.4-6.7-3.9v-28.5c0-3.5,3.7-5.6,6.7-3.9l24.7,14.2c3,1.7,3,6.1,0,7.8h0Z" />
+                    <rect id="pause" class="st4" x="144.4" y="84" width="38.7" height="38.7" rx="9.1" ry="9.1"
+                        style="display:none" />
+                    <g id="playRandom" class="st9">
+                        <path class="st7"
+                            d="M343.6,112.5c8.4-1.1,12.9-11.2,18.2-16.9,5.1-5.5,10.9-8,18.4-8.4l.3-3.2,13.2,6.9-12.8,6.9c-.8.3-.3-1.9-.5-2.5-.3-1.1-2.5-.6-3.4-.5-7.9,1.6-13.6,15.2-20.3,20-3,2.2-8.7,4.8-12.4,4.8h-7.5v-7.1c2.2-.2,4.8.3,6.9,0h-.1Z" />
+                        <path class="st7"
+                            d="M380,112.5l.5-3.3,13.1,6.6c0,.5-.4.6-.7.8-2.4,1.6-8.9,4.8-11.7,5.8s-.6.3-1,.2v-2.9c-6.6-.4-13.4-2.5-17.4-7.7l5.1-6.6c3,3.8,6.9,7.3,12.1,7h0Z" />
+                        <path class="st7"
+                            d="M336.6,87.3c8.4-.4,16.5,1,22.7,7.1.3.2,0,.4,0,.6-.9,1.9-3.9,4.4-4.9,6.5-1.8-1.5-3.2-3.6-5.3-4.9s-4.8-2.2-6.7-2.2h-5.7v-7.1h-.1Z" />
+                    </g>
+                    <text class="st8" transform="translate(22 41.4)">
+                        <tspan x="0" y="0">Album:</tspan>
+                    </text>
+                    <text class="st8" transform="translate(22 71.8)">
+                        <tspan x="0" y="0">Track:</tspan>
+                    </text>
+                    <text id="albumInfo" class="st8" transform="translate(93.9 42.8)">
+                        <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                    </text>
+                    <text id="trackInfo" class="st8" transform="translate(92.8 68.4)">
+                        <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                    </text>
+                </svg>
+            </div>
+        </div>
+        <audio id="audioPlayer"></audio>
+    </div>
+    <div id="breakup">
+        <div class="phone">
+            <div class="phone-top">
+                <img src="/images/top_phone.svg" alt="phone">
+            </div>
+            <div class="phone-middle">
+                <div class="blueBubble">This is killing me, but I have to stop.</div>
+                <div class="greyBubble">Stop what? Don't say that.</div>
+                <div class="blueBubble">I can't keep pretending we're okay.</div>
+                <div class="greyBubble">We could be okay! If you'd just try.</div>
+                <div class="blueBubble">I have been trying! But I feel like I'm the only one. I feel so incredibly
+                    alone.
+                </div>
+                <div class="greyBubble">That's not true. You're being dramatic.</div>
+                <div class="blueBubble">Dramatic? I'm heartbroken! And I'm angry that you can't even see it.</div>
+                <div class="greyBubble">Don't do this. Please.</div>
+                <div class="blueBubble">I wish I didn't have to. I'm so sorry.</div>
+                <!-- Example for "Sing The Blues" -->
+                <!-- "Sing The Blues" aligned left -->
+                <div class="song-row">
+                    <img src="/images/blues.png" alt="Sing The Blues" class="song-art">
+                    <div class="song">
+                        <button data-album="breakup" data-track="0">Sing The Blues</button>
+                    </div>
+                </div>
+
+                <!-- "Cold Blooded Woman" aligned right -->
+                <div class="song-row right">
+
+                    <img src="/images/heart.png" alt="Cold Blooded Woman" class="song-art">
+                    <div class="song">
+                        <button data-album="breakup" data-track="1">Cold Blooded Woman</button>
+                    </div>
+                </div>
+                <div class="player breakup">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg id="playHeadContainer" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                        viewBox="0 0 473.3 200">
+                        <!-- Generator: Adobe Illustrator 29.5.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 137)  -->
+                        <defs>
+                            <style>
+                                .st0,
+                                .st1,
+                                .st2,
+                                .st3,
+                                .st4,
+                                .st5,
+                                .st6 {
+                                    isolation: isolate;
+                                }
+
+                                .st7,
+                                .st8,
+                                .st2,
+                                .st4,
+                                .st5,
+                                .st6 {
+                                    fill: #fff;
+                                }
+
+                                .st1,
+                                .st3 {
+                                    fill: none;
+                                    stroke: #fff;
+                                    stroke-linecap: round;
+                                    stroke-miterlimit: 10;
+                                    stroke-width: 5px;
+                                }
+
+                                .st8 {
+                                    font-size: 18px;
+                                }
+
+                                .st8,
+                                .st2 {
+                                    font-family: AnaphoraStencil-Extrabold, 'Anaphora Stencil';
+                                    font-weight: 700;
+                                }
+
+                                .st9,
+                                .st3,
+                                .st4 {
+                                    opacity: .7;
+                                }
+
+                                .st2 {
+                                    font-size: 14px;
+                                }
+
+                                .st5 {
+                                    opacity: .8;
+                                }
+
+                                .st6 {
+                                    opacity: .4;
+                                }
+
+                                /* Changes the progress bar color */
+
+                                .progressColored {
+                                    stroke: hsla(0, 0%, 58%, 0.851);
+                                    stroke-linecap: round;
+                                    stroke-miterlimit: 10;
+                                    stroke-width: 5px;
+                                }
+
+                                .playHead {
+                                    fill: hwb(0 80% 20% / 0.855);
+
+
+                                }
+                            </style>
+                        </defs>
+                        <rect id="playHeadContainerBackground" class="st6" y="14" width="473.3" height="149.1" rx="14.3"
+                            ry="14.3" />
+                        <line id="progress" class="st3" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                        <line class="progressColored" class="st1" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                        <g id="playTime" class="st0">
+                            <g class="st0">
+                                <text class="st2" transform="translate(424.5 146.2)">
+                                    <tspan x="0" y="0">00:00</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <circle class="playHead" class="st5" cx="22" cy="140.3" r="8.9" />
+                        <path id="next" class="st4"
+                            d="M285.3,106.4l-19.4,11.2c-2.4,1.4-5.3-.3-5.3-3.1v-4l-12.3,7.1c-2.4,1.4-5.3-.3-5.3-3.1v-22.3c0-2.7,2.9-4.4,5.3-3l12.3,7.1v-4c0-2.7,2.9-4.4,5.3-3l19.4,11.2c2.4,1.3,2.4,4.8,0,6.1v-.2Z" />
+                        <path id="prev" class="st4"
+                            d="M42.2,100.3l19.4-11.2c2.4-1.4,5.3.3,5.3,3.1v4l12.3-7.1c2.4-1.4,5.3.3,5.3,3.1v22.3c0,2.7-2.9,4.4-5.3,3l-12.3-7.1v4c0,2.7-2.9,4.4-5.3,3l-19.4-11.2c-2.4-1.3-2.4-4.8,0-6.1v.2Z" />
+                        <path id="play" class="st4"
+                            d="M180,107.2l-24.7,14.2c-3,1.7-6.7-.4-6.7-3.9v-28.5c0-3.5,3.7-5.6,6.7-3.9l24.7,14.2c3,1.7,3,6.1,0,7.8h0Z" />
+                        <rect id="pause" class="st4" x="144.4" y="84" width="38.7" height="38.7" rx="9.1" ry="9.1"
+                            style="display:none" />
+                        <g id="playRandom" class="st9">
+                            <path class="st7"
+                                d="M343.6,112.5c8.4-1.1,12.9-11.2,18.2-16.9,5.1-5.5,10.9-8,18.4-8.4l.3-3.2,13.2,6.9-12.8,6.9c-.8.3-.3-1.9-.5-2.5-.3-1.1-2.5-.6-3.4-.5-7.9,1.6-13.6,15.2-20.3,20-3,2.2-8.7,4.8-12.4,4.8h-7.5v-7.1c2.2-.2,4.8.3,6.9,0h-.1Z" />
+                            <path class="st7"
+                                d="M380,112.5l.5-3.3,13.1,6.6c0,.5-.4.6-.7.8-2.4,1.6-8.9,4.8-11.7,5.8s-.6.3-1,.2v-2.9c-6.6-.4-13.4-2.5-17.4-7.7l5.1-6.6c3,3.8,6.9,7.3,12.1,7h0Z" />
+                            <path class="st7"
+                                d="M336.6,87.3c8.4-.4,16.5,1,22.7,7.1.3.2,0,.4,0,.6-.9,1.9-3.9,4.4-4.9,6.5-1.8-1.5-3.2-3.6-5.3-4.9s-4.8-2.2-6.7-2.2h-5.7v-7.1h-.1Z" />
+                        </g>
+                        <text class="st8" transform="translate(22 41.4)">
+                            <tspan x="0" y="0">Album:</tspan>
+                        </text>
+                        <text class="st8" transform="translate(22 71.8)">
+                            <tspan x="0" y="0">Track:</tspan>
+                        </text>
+                        <text id="albumInfo" class="st8" transform="translate(93.9 42.8)">
+                            <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                        </text>
+                        <text id="trackInfo" class="st8" transform="translate(92.8 68.4)">
+                            <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                        </text>
+                    </svg>
+                </div>
+
+            </div>
+            <div class="phone-bottom">
+                <img src="/images/bottom_phone.svg" alt="phone">
+            </div>
+
+            <audio id="audioPlayer"></audio>
+
+        </div>
+    </div>
+    <div id="dragons">
+        <div class="dragonsPlayer">
+            <div class="song"><button data-album="dragons" data-track="0">Here Be Dragons</button></div>
+            <div class="song"><button data-album="dragons" data-track="1">Sea Shanty Blues</button></div>
+            <div class="song"><button data-album="dragons" data-track="2">A Mermaids Tale</button></div>
+            <div class="song"><button data-album="dragons" data-track="3">Carry My Love Over The Sea</button></div>
+            <div class="player">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg id="playHeadContainer" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 473.3 200">
+                    <!-- Generator: Adobe Illustrator 29.5.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 137)  -->
+                    <defs>
+                        <style>
+                            .st0,
+                            .st1,
+                            .st2,
+                            .st3,
+                            .st4,
+                            .st5,
+                            .st6 {
+                                isolation: isolate;
+                            }
+
+                            .st7,
+                            .st8,
+                            .st2,
+                            .st4,
+                            .st5,
+                            .st6 {
+                                fill: #fff;
+                            }
+
+                            .st1,
+                            .st3 {
+                                fill: none;
+                                stroke: #fff;
+                                stroke-linecap: round;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5px;
+                            }
+
+                            .st8 {
+                                font-size: 18px;
+                            }
+
+                            .st8,
+                            .st2 {
+                                font-family: AnaphoraStencil-Extrabold, 'Anaphora Stencil';
+                                font-weight: 700;
+                            }
+
+                            .st9,
+                            .st3,
+                            .st4 {
+                                opacity: .7;
+                            }
+
+                            .st2 {
+                                font-size: 14px;
+                            }
+
+                            .st5 {
+                                opacity: .8;
+                            }
+
+                            .st6 {
+                                opacity: .4;
+                            }
+
+                            /* Changes the progress bar color */
+
+                            .progressColored {
+                                stroke: hsla(0, 0%, 58%, 0.851);
+                                stroke-linecap: round;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5px;
+                            }
+
+                            .playHead {
+                                fill: hwb(0 80% 20% / 0.855);
+
+
+                            }
+                        </style>
+                    </defs>
+                    <rect id="playHeadContainerBackground" class="st6" y="14" width="473.3" height="149.1" rx="14.3"
+                        ry="14.3" />
+                    <line id="progress" class="st3" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                    <line class="progressColored" class="st1" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                    <g id="playTime" class="st0">
+                        <g class="st0">
+                            <text class="st2" transform="translate(424.5 146.2)">
+                                <tspan x="0" y="0">00:00</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <circle class="playHead" class="st5" cx="22" cy="140.3" r="8.9" />
+                    <path id="next" class="st4"
+                        d="M285.3,106.4l-19.4,11.2c-2.4,1.4-5.3-.3-5.3-3.1v-4l-12.3,7.1c-2.4,1.4-5.3-.3-5.3-3.1v-22.3c0-2.7,2.9-4.4,5.3-3l12.3,7.1v-4c0-2.7,2.9-4.4,5.3-3l19.4,11.2c2.4,1.3,2.4,4.8,0,6.1v-.2Z" />
+                    <path id="prev" class="st4"
+                        d="M42.2,100.3l19.4-11.2c2.4-1.4,5.3.3,5.3,3.1v4l12.3-7.1c2.4-1.4,5.3.3,5.3,3.1v22.3c0,2.7-2.9,4.4-5.3,3l-12.3-7.1v4c0,2.7-2.9,4.4-5.3,3l-19.4-11.2c-2.4-1.3-2.4-4.8,0-6.1v.2Z" />
+                    <path id="play" class="st4"
+                        d="M180,107.2l-24.7,14.2c-3,1.7-6.7-.4-6.7-3.9v-28.5c0-3.5,3.7-5.6,6.7-3.9l24.7,14.2c3,1.7,3,6.1,0,7.8h0Z" />
+                    <rect id="pause" class="st4" x="144.4" y="84" width="38.7" height="38.7" rx="9.1" ry="9.1"
+                        style="display:none" />
+                    <g id="playRandom" class="st9">
+                        <path class="st7"
+                            d="M343.6,112.5c8.4-1.1,12.9-11.2,18.2-16.9,5.1-5.5,10.9-8,18.4-8.4l.3-3.2,13.2,6.9-12.8,6.9c-.8.3-.3-1.9-.5-2.5-.3-1.1-2.5-.6-3.4-.5-7.9,1.6-13.6,15.2-20.3,20-3,2.2-8.7,4.8-12.4,4.8h-7.5v-7.1c2.2-.2,4.8.3,6.9,0h-.1Z" />
+                        <path class="st7"
+                            d="M380,112.5l.5-3.3,13.1,6.6c0,.5-.4.6-.7.8-2.4,1.6-8.9,4.8-11.7,5.8s-.6.3-1,.2v-2.9c-6.6-.4-13.4-2.5-17.4-7.7l5.1-6.6c3,3.8,6.9,7.3,12.1,7h0Z" />
+                        <path class="st7"
+                            d="M336.6,87.3c8.4-.4,16.5,1,22.7,7.1.3.2,0,.4,0,.6-.9,1.9-3.9,4.4-4.9,6.5-1.8-1.5-3.2-3.6-5.3-4.9s-4.8-2.2-6.7-2.2h-5.7v-7.1h-.1Z" />
+                    </g>
+                    <text class="st8" transform="translate(22 41.4)">
+                        <tspan x="0" y="0">Album:</tspan>
+                    </text>
+                    <text class="st8" transform="translate(22 71.8)">
+                        <tspan x="0" y="0">Track:</tspan>
+                    </text>
+                    <text id="albumInfo" class="st8" transform="translate(93.9 42.8)">
+                        <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                    </text>
+                    <text id="trackInfo" class="st8" transform="translate(92.8 68.4)">
+                        <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                    </text>
+                </svg>
+            </div>
+            <audio id="audioPlayer"></audio>
+        </div>
+
+
+
+    </div>
+    </div>
+    <div id="music">
+        <div class="musicPlayer">
+
+
+
+            <div class="albumImg">
+    <img class="album-cover" src="images/debutCover.png" alt="">
+    <button class="album-btn" id="homeDragonsButton">
+        <img class="album-btn-img" src="/images/albumButton.svg" alt="Dragons button">
+    </button>
+     <button class="album-btn" id="homeBreakupButton">
+        <img src="/images/albumButton.svg" alt="Break up button">
+    </button>
+    <button class="album-btn" id="homeDebutButton">
+        <img src="/images/albumButton.svg" alt="Debut button">
+    </button>
+</div>
+
+            <div class="player">
+                <?xml version="1.0" encoding="UTF-8"?>
+                <svg id="playHeadContainer" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 473.3 200">
+                    <!-- Generator: Adobe Illustrator 29.5.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 137)  -->
+                    <defs>
+                        <style>
+                            .st0,
+                            .st1,
+                            .st2,
+                            .st3,
+                            .st4,
+                            .st5,
+                            .st6 {
+                                isolation: isolate;
+                            }
+
+                            .st7,
+                            .st8,
+                            .st2,
+                            .st4,
+                            .st5,
+                            .st6 {
+                                fill: #fff;
+                            }
+
+                            .st1,
+                            .st3 {
+                                fill: none;
+                                stroke: #fff;
+                                stroke-linecap: round;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5px;
+                            }
+
+                            .st8 {
+                                font-size: 18px;
+                            }
+
+                            .st8,
+                            .st2 {
+                                font-family: AnaphoraStencil-Extrabold, 'Anaphora Stencil';
+                                font-weight: 700;
+                            }
+
+                            .st9,
+                            .st3,
+                            .st4 {
+                                opacity: .7;
+                            }
+
+                            .st2 {
+                                font-size: 14px;
+                            }
+
+                            .st5 {
+                                opacity: .8;
+                            }
+
+                            .st6 {
+                                opacity: .4;
+                            }
+
+                            /* Changes the progress bar color */
+
+                            .progressColored {
+                                stroke: hsla(0, 0%, 58%, 0.851);
+                                stroke-linecap: round;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5px;
+                            }
+
+                            .playHead {
+                                fill: hwb(0 80% 20% / 0.855);
+
+
+                            }
+                        </style>
+                    </defs>
+                    <rect id="playHeadContainerBackground" class="st6" y="14" width="473.3" height="149.1" rx="14.3"
+                        ry="14.3" />
+                    <line id="progress" class="st3" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                    <line class="progressColored" class="st1" x1="22" y1="140.3" x2="412.1" y2="140.3" />
+                    <g id="playTime" class="st0">
+                        <g class="st0">
+                            <text class="st2" transform="translate(424.5 146.2)">
+                                <tspan x="0" y="0">00:00</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <circle class="playHead" class="st5" cx="22" cy="140.3" r="8.9" />
+                    <path id="next" class="st4"
+                        d="M285.3,106.4l-19.4,11.2c-2.4,1.4-5.3-.3-5.3-3.1v-4l-12.3,7.1c-2.4,1.4-5.3-.3-5.3-3.1v-22.3c0-2.7,2.9-4.4,5.3-3l12.3,7.1v-4c0-2.7,2.9-4.4,5.3-3l19.4,11.2c2.4,1.3,2.4,4.8,0,6.1v-.2Z" />
+                    <path id="prev" class="st4"
+                        d="M42.2,100.3l19.4-11.2c2.4-1.4,5.3.3,5.3,3.1v4l12.3-7.1c2.4-1.4,5.3.3,5.3,3.1v22.3c0,2.7-2.9,4.4-5.3,3l-12.3-7.1v4c0,2.7-2.9,4.4-5.3,3l-19.4-11.2c-2.4-1.3-2.4-4.8,0-6.1v.2Z" />
+                    <path id="play" class="st4"
+                        d="M180,107.2l-24.7,14.2c-3,1.7-6.7-.4-6.7-3.9v-28.5c0-3.5,3.7-5.6,6.7-3.9l24.7,14.2c3,1.7,3,6.1,0,7.8h0Z" />
+                    <rect id="pause" class="st4" x="144.4" y="84" width="38.7" height="38.7" rx="9.1" ry="9.1"
+                        style="display:none" />
+                    <g id="playRandom" class="st9">
+                        <path class="st7"
+                            d="M343.6,112.5c8.4-1.1,12.9-11.2,18.2-16.9,5.1-5.5,10.9-8,18.4-8.4l.3-3.2,13.2,6.9-12.8,6.9c-.8.3-.3-1.9-.5-2.5-.3-1.1-2.5-.6-3.4-.5-7.9,1.6-13.6,15.2-20.3,20-3,2.2-8.7,4.8-12.4,4.8h-7.5v-7.1c2.2-.2,4.8.3,6.9,0h-.1Z" />
+                        <path class="st7"
+                            d="M380,112.5l.5-3.3,13.1,6.6c0,.5-.4.6-.7.8-2.4,1.6-8.9,4.8-11.7,5.8s-.6.3-1,.2v-2.9c-6.6-.4-13.4-2.5-17.4-7.7l5.1-6.6c3,3.8,6.9,7.3,12.1,7h0Z" />
+                        <path class="st7"
+                            d="M336.6,87.3c8.4-.4,16.5,1,22.7,7.1.3.2,0,.4,0,.6-.9,1.9-3.9,4.4-4.9,6.5-1.8-1.5-3.2-3.6-5.3-4.9s-4.8-2.2-6.7-2.2h-5.7v-7.1h-.1Z" />
+                    </g>
+                    <text class="st8" transform="translate(22 41.4)">
+                        <tspan x="0" y="0">Album:</tspan>
+                    </text>
+                    <text class="st8" transform="translate(22 71.8)">
+                        <tspan x="0" y="0">Track:</tspan>
+                    </text>
+                    <text id="albumInfo" class="st8" transform="translate(93.9 42.8)">
+                        <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                    </text>
+                    <text id="trackInfo" class="st8" transform="translate(92.8 68.4)">
+                        <tspan x="0" y="0" xml:space="preserve"> </tspan>
+                    </text>
+                </svg>
+            </div>
+            <audio id="audioPlayer"></audio>
+        </div>
+
+
+    </div>
+    </div>
+    <script>
+
+
+        // --- Album Data ---
+        const debutSongs = [
+            {
+                album: "Eponymous Debut",
+                image: "/images/debutCover.png",
+                tracks: [
+                    { title: "Gloomy Tune", audio: "/audio/Gloomy Tune_01.mp3" },
+                    { title: "Love Merry Go Round", audio: "/audio/Love Merry Go Round_01.mp3" },
+                    { title: "Waves Of Memory", audio: "/audio/Waves Of Memory_01.mp3" },
+                    { title: "Boring Love Song", audio: "/audio/Boring Love Song_01.mp3" },
+                    { title: "Best Friends", audio: "/audio/Best Friends_01.mp3" }
+                ]
+            }
+        ];
+        const breakUpSongs = [
+            {
+                album: "Obligatory Break Up Album",
+                image: "/images/breakUpCover.png",
+                tracks: [
+                    { title: "Sing The Blues", audio: "/audio/sing_the_blues.mp3" },
+                    { title: "Cold Hearted Woman", audio: "/audio/Cold Hearted Woman_01.mp3" }
+                ]
+            }
+        ];
+        const dragonsSongs = [
+            {
+                album: "Here be Dragons",
+                image: "/images/dragonsCover.png",
+                tracks: [
+                    { title: "Here Be Dragons", audio: "/audio/Here Be Dragons_01.mp3" },
+                    { title: "Sea Shanty Blues", audio: "/audio/Sea Shanty Blues_01.mp3" },
+                    { title: "A Mermaids Tale", audio: "/audio/A Mermaids Tale_01.mp3" },
+                    { title: "Carry My Love Over The Sea", audio: "/audio/Carry My Love Over The Sea_01.mp3" }
+                ]
+            }
+        ];
+        const extra = [
+            {
+                album: "Extra",
+                image: "/images/extraCover.png",
+                tracks: [
+                    { title: "A Selfie Song", audio: "/audio/A Selfie Song_01.mp3" },
+                    { title: "Someone to Love Me", audio: "/audio/Someone to Love Me_01.mp3" },
+                    { title: "Music Box", audio: "/audio/Music Box_01.mp3" },
+                    { title: "Circus Called Life", audio: "/audio/Circus Called Life_01.mp3" }
+                ]
+            }
+        ];
+
+        // --- All Songs Array ---
+        const allSongs = [
+            ...debutSongs[0].tracks.map(track => ({ ...track, album: 'debut' })),
+            ...breakUpSongs[0].tracks.map(track => ({ ...track, album: 'breakup' })),
+            ...dragonsSongs[0].tracks.map(track => ({ ...track, album: 'dragons' })),
+            ...extra[0].tracks.map(track => ({ ...track, album: 'extra' }))
+        ];
+
+        // --- Album Map for Lookup ---
+        const albumMap = {
+            debut: debutSongs[0],
+            breakup: breakUpSongs[0],
+            dragons: dragonsSongs[0],
+            extra: extra[0]
+        };
+
+        // --- State ---
+        const isPlaying = {
+            album: null,
+            trackIndex: null,
+            trackTitle: null,
+            audioPath: null,
+            playing: false,
+            image: null
+        };
+
+        // --- History ---
+        const playHistory = [];
+        let historyPointer = -1;
+
+        // --- DOM References ---
+        const audio = document.getElementById('audioPlayer');
+        const playBtns = document.querySelectorAll('#play');
+        const pauseBtns = document.querySelectorAll('#pause');
+        const nextBtns = document.querySelectorAll('#next');
+        const prevBtns = document.querySelectorAll('#prev');
+        const progressBars = document.querySelectorAll('.progressColored');
+        const playHeads = document.querySelectorAll('.playHead');
+        const playTimes = document.querySelectorAll('#playTime tspan');
+        const albumInfos = document.querySelectorAll('#albumInfo tspan, #albumInfo tspan[x], #albumInfo'); // fallback for empty tspans
+        const trackInfos = document.querySelectorAll('#trackInfo tspan, #trackInfo tspan[x], #trackInfo');
+
+        // --- Utility Functions ---
+        function formatTime(sec) {
+            if (isNaN(sec)) return "00:00";
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+        function updateAllProgress(percent) {
+            const start = 22, end = 412.1;
+            const x2 = start + (end - start) * (percent || 0);
+            progressBars.forEach(bar => bar.setAttribute('x2', x2));
+            playHeads.forEach(head => head.setAttribute('cx', x2));
+        }
+
+        function updateAlbumImg() {
+    const albumImgDiv = document.querySelector('.albumImg');
+    if (!albumImgDiv) return;
+
+    // Update album cover image and alt
+    const albumCover = albumImgDiv.querySelector('.album-cover');
+    if (isPlaying.image) {
+        albumCover.src = isPlaying.image;
+        albumCover.alt = isPlaying.album;
+    } else {
+        albumCover.src = "/images/debutCover.png";
+        albumCover.alt = "Default Album Cover";
+    }
+
+    // Show only the button for the current album
+    const debutBtn = albumImgDiv.querySelector('#homeDebutButton');
+    const dragonsBtn = albumImgDiv.querySelector('#homeDragonsButton');
+    const breakupBtn = albumImgDiv.querySelector('#homeBreakupButton');
+
+    // Hide all first
+    debutBtn.style.display = 'none';
+    dragonsBtn.style.display = 'none';
+    breakupBtn.style.display = 'none';
+
+    // Show the correct one only for album play, not allSongs
+    let visibleBtn = null;
+    if (isPlaying.album === "Here be Dragons") {
+        dragonsBtn.style.display = '';
+        visibleBtn = 'homeDragonsButton';
+    } else if (isPlaying.album === "Obligatory Break Up Album") {
+        breakupBtn.style.display = '';
+        visibleBtn = 'homeBreakupButton';
+    } else if (isPlaying.album === "Eponymous Debut" || !isPlaying.album) {
+        debutBtn.style.display = '';
+        visibleBtn = 'homeDebutButton';
+    }
+    // If playing allSongs or unknown album, debut button is shown by default
+
+    // Log which button is visible
+    console.log('Visible album button:', visibleBtn);
+}
+        function updateAllPlayersUI() {
+            albumInfos.forEach(el => el.textContent = isPlaying.album || "");
+            trackInfos.forEach(el => el.textContent = isPlaying.trackTitle || "");
+            playTimes.forEach(el => el.textContent = "00:00");
+            updateAllProgress(0);
+            updateAlbumImg();
+
+            // Toggle play/pause button visibility
+            playBtns.forEach(btn => btn.style.display = isPlaying.playing ? 'none' : '');
+            pauseBtns.forEach(btn => btn.style.display = isPlaying.playing ? '' : 'none');
+        }
+
+        // --- Main Play Logic ---
+        function playTrack(albumData, trackIndex, fromHistory = false) {
+            const track = albumData.tracks[trackIndex];
+            isPlaying.album = albumData.album;
+            isPlaying.trackIndex = trackIndex;
+            isPlaying.trackTitle = track.title;
+            isPlaying.audioPath = track.audio;
+            isPlaying.playing = true;
+            isPlaying.image = albumData.image || null;
+
+            audio.src = track.audio;
+            audio.play();
+            updateAllPlayersUI();
+
+            if (!fromHistory) {
+                // If not coming from history, add to history and move pointer
+                playHistory.splice(historyPointer + 1); // Remove any "forward" history
+                playHistory.push({ albumKey: getAlbumKey(albumData), trackIndex });
+                historyPointer = playHistory.length - 1;
+            }
+        }
+
+        function getAlbumKey(albumData) {
+            for (const key in albumMap) {
+                if (albumMap[key] === albumData) return key;
+            }
+            return null;
+        }
+
+        // --- Song Button Clicks ---
+        document.querySelectorAll('.song button').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const albumKey = this.getAttribute('data-album');
+                const trackIndex = parseInt(this.getAttribute('data-track'), 10);
+                const albumData = albumMap[albumKey];
+                if (albumData && albumData.tracks[trackIndex]) {
+                    playTrack(albumData, trackIndex, false);
+                }
+            });
+        });
+
+
+
+        // --- SVG Controls (Play/Pause/Next/Prev) ---
+        playBtns.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                const section = event.target.closest('div[id]');
+                if (!section) return;
+                const sectionId = section.id;
+
+                if (sectionId === 'music') {
+                    if (isPlaying.audioPath && !isPlaying.playing) {
+                        // Resume current song (shuffle or not)
+                        audio.play();
+                        isPlaying.playing = true;
+                        updateAllPlayersUI();
+                    } else if (musicShuffle) {
+                        // Shuffle is active, nothing loaded yet
+                        const randomIndex = Math.floor(Math.random() * allSongs.length);
+                        playAllSongsTrack(randomIndex, false);
+                    } else {
+                        // Not shuffle, nothing loaded yet
+                        playAllSongsTrack(0, false);
+                    }
+                } else {
+                    // ...existing album logic...
+                    const albumData = albumMap[sectionId];
+                    if (!albumData) return;
+                    if (isPlaying.audioPath && !isPlaying.playing) {
+                        audio.play();
+                        isPlaying.playing = true;
+                        updateAllPlayersUI();
+                    } else {
+                        playTrack(albumData, 0, false);
+                    }
+                }
+            });
+        });
+        pauseBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                audio.pause();
+                isPlaying.playing = false;
+                updateAllPlayersUI();
+            });
+        });
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                const section = event.target.closest('div[id]');
+                if (!section) return;
+                const sectionId = section.id;
+
+                if (sectionId === 'music') {
+                    let nextIndex = 0;
+                    if (musicShuffle) {
+                        // Pick a random song
+                        nextIndex = Math.floor(Math.random() * allSongs.length);
+                    } else if (isPlaying.trackIndex != null && isPlaying.trackIndex < allSongs.length) {
+                        nextIndex = (isPlaying.trackIndex + 1) % allSongs.length;
+                    }
+                    playAllSongsTrack(nextIndex, false);
+                } else {
+                    // ...existing album logic...
+                    musicShuffle = false; // Disable shuffle for other sections
+                    const albumData = albumMap[sectionId];
+                    if (!albumData) return;
+                    let nextIndex = 0;
+                    if (isPlaying.album === albumData.album && isPlaying.trackIndex != null) {
+                        nextIndex = (isPlaying.trackIndex + 1) % albumData.tracks.length;
+                    }
+                    playTrack(albumData, nextIndex, false);
+                }
+            });
+        });
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                const section = event.target.closest('div[id]');
+                if (!section) return;
+                const sectionId = section.id;
+
+                if (sectionId === 'music') {
+                    let prevIndex = 0;
+                    if (isPlaying.trackIndex != null && isPlaying.trackIndex < allSongs.length) {
+                        prevIndex = (isPlaying.trackIndex - 1 + allSongs.length) % allSongs.length;
+                    }
+                    playAllSongsTrack(prevIndex, false);
+                } else {
+                    // ...existing album logic...
+                    if (historyPointer > 0) {
+                        historyPointer--;
+                        const prev = playHistory[historyPointer];
+                        const albumData = albumMap[prev.albumKey];
+                        playTrack(albumData, prev.trackIndex, true);
+                    }
+                }
+            });
+        });
+
+
+        const shuffleBtns = document.querySelectorAll('#playRandom');
+        // ...existing state...
+        let musicShuffle = false;
+        shuffleBtns.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                const section = event.target.closest('div[id]');
+                if (!section) return;
+                const sectionId = section.id;
+
+                if (sectionId === 'music') {
+                    musicShuffle = true; // Enable shuffle mode for music section
+                    const randomIndex = Math.floor(Math.random() * allSongs.length);
+                    playAllSongsTrack(randomIndex, false);
+                } else {
+                    // ...existing album logic...
+                    musicShuffle = false; // Disable shuffle for other sections
+                    const albumData = albumMap[sectionId];
+                    if (!albumData) return;
+                    const randomIndex = Math.floor(Math.random() * albumData.tracks.length);
+                    playTrack(albumData, randomIndex, false);
+                }
+            });
+        });
+
+        function playAllSongsTrack(trackIndex, fromHistory = false) {
+            const track = allSongs[trackIndex];
+            if (!track) return;
+
+            // Find the album data for the current song
+            let albumData = null;
+            if (track.album && albumMap[track.album]) {
+                albumData = albumMap[track.album];
+            }
+
+            isPlaying.album = albumData ? albumData.album : track.album; // Show real album name
+            isPlaying.trackIndex = trackIndex;
+            isPlaying.trackTitle = track.title;
+            isPlaying.audioPath = track.audio;
+            isPlaying.playing = true;
+            isPlaying.image = albumData && albumData.image ? albumData.image : null;
+
+            audio.src = track.audio;
+            audio.play();
+            updateAllPlayersUI();
+
+            if (!fromHistory) {
+                playHistory.splice(historyPointer + 1);
+                playHistory.push({ albumKey: 'allSongs', trackIndex });
+                historyPointer = playHistory.length - 1;
+            }
+        }
+
+        // --- Progress Bar and Time Sync ---
+
+        let isDragging = false;
+        let draggingPlayHead = null;
+
+        playHeads.forEach(playHead => {
+            playHead.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                draggingPlayHead = playHead;
+                document.body.style.userSelect = 'none';
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging || draggingPlayHead !== playHead) return;
+                const svg = playHead.closest('svg');
+                const progressBar = svg.querySelector('.progressColored');
+                const rect = svg.getBoundingClientRect();
+                let mouseX = e.clientX - rect.left;
+                const start = 22, end = 412.1;
+                mouseX = Math.max(start, Math.min(end, mouseX));
+                playHead.setAttribute('cx', mouseX);
+                progressBar.setAttribute('x2', mouseX);
+                const percent = (mouseX - start) / (end - start);
+                if (!isNaN(audio.duration)) {
+                    playTimes.forEach(el => el.textContent = formatTime(audio.duration * percent));
+                }
+            });
+
+            window.addEventListener('mouseup', (e) => {
+                if (!isDragging || draggingPlayHead !== playHead) return;
+                isDragging = false;
+                draggingPlayHead = null;
+                document.body.style.userSelect = '';
+                const svg = playHead.closest('svg');
+                const rect = svg.getBoundingClientRect();
+                let mouseX = e.clientX - rect.left;
+                const start = 22, end = 412.1;
+                mouseX = Math.max(start, Math.min(end, mouseX));
+                const percent = (mouseX - start) / (end - start);
+                if (!isNaN(audio.duration)) {
+                    audio.currentTime = audio.duration * percent;
+                }
+            });
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            if (isDragging) return; // Only update when not dragging
+            const percent = audio.currentTime / audio.duration;
+            playTimes.forEach(el => el.textContent = formatTime(audio.currentTime));
+            updateAllProgress(percent);
+        });
+        audio.addEventListener('ended', () => {
+            // Auto-next on end
+            if (!isPlaying.album) return;
+            const albumData = albumMapKey(isPlaying.album);
+            if (!albumData) return;
+            let idx = (isPlaying.trackIndex + 1) % albumData.tracks.length;
+            playTrack(albumData, idx);
+        });
+
+        // --- Helper to get albumMap key by album name ---
+        function albumMapKey(albumName) {
+            for (const key in albumMap) {
+                if (albumMap[key].album === albumName) return albumMap[key];
+            }
+            return null;
+        }
+
+        // --- Initialize UI on load ---
+        updateAllPlayersUI();
+
+
+
+    </script>
+</body>
+
+</html>

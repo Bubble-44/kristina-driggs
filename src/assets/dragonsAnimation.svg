@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1920 1080">
+  <!-- Generator: Adobe Illustrator 29.5.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 137)  -->
+  <defs>
+    <style>
+      .st0 {
+        isolation: isolate;
+      }
+    </style>
+  </defs>
+  <g id="Here_Be_dragons" class="st0">
+    <g id="background_Image">
+      <image id="background_Image-2" class="st0" width="1920" height="1080" xlink:href="dragonsAnimation-1.png"/>
+    </g>
+    <g id="cloudGroup">
+      <g id="lightning_Image">
+        <image id="lightning_Image-2" class="st0" width="222" height="544" transform="translate(1057 217)" xlink:href="dragonsAnimation-2.png"/>
+      </g>
+      <g id="cloud_Image">
+        <image id="cloud_Image-2" class="st0" width="414" height="258" transform="translate(990 50)" xlink:href="dragonsAnimation-3.png"/>
+      </g>
+    </g>
+    <g id="wave04_Image">
+      <image id="wave04_Image-2" class="st0" width="1920" height="345" transform="translate(0 514)" xlink:href="dragonsAnimation-4.png"/>
+    </g>
+    <g id="wave03group">
+      <g id="boat_Image">
+        <image id="boat_Image-2" class="st0" width="479" height="710" transform="translate(807 136)" xlink:href="dragonsAnimation-5.png"/>
+      </g>
+      <g id="wave03_Image">
+        <image id="wave03_Image-2" class="st0" width="1920" height="324" transform="translate(0 695)" xlink:href="dragonsAnimation-6.png"/>
+      </g>
+    </g>
+    <g id="wave02_Image">
+      <image id="wave02_Image-2" class="st0" width="1635" height="323" transform="translate(285 757)" xlink:href="dragonsAnimation-7.png"/>
+    </g>
+    <g id="wave01_Image">
+      <image id="wave01_Image-2" class="st0" width="1920" height="213" transform="translate(0 867)" xlink:href="dragonsAnimation-8.png"/>
+    </g>
+  </g>
+</svg>

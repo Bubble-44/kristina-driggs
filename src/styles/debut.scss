@@ -1,0 +1,200 @@
+.debut-hero {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.debut-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// ...existing code...
+.debut-player-wrapper {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 100%;
+  top: 0%;
+  align-content: center;
+
+  /* make wrapper size to its children and center them */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center children horizontally */
+  justify-content: flex-end;
+  width: auto;
+}
+
+
+.debut-player-wrapper .player-container{
+  width: 35%;
+  height: 100%;
+  position: absolute;
+  transform: translate(0%, 35%);
+}
+
+.debut-button-wraper {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ...existing code... */
+.debut-song-buttons {
+  /* Backdrop added to improve button visibility (matches dragons-backdrop) */
+  background: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  padding: 10px 10px 10px 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+
+  /* let the backdrop size to its contents (no forced full-width) */
+  width: 35%  !important;
+  max-width: none !important;
+  box-sizing: border-box;
+
+}
+
+@media (max-width: 600px) {
+  .debut-song-buttons {
+    width: 75% !important;
+    margin-top: 95px;
+  }
+
+  .debut-player-wrapper .player-container {
+    width: 75% !important; /* full width on small screens */
+      transform: translate(0%, 38%);
+
+
+  }
+}
+
+/* Keep song-buttons stacked and clearly visible inside the backdrop */
+.debut-song-buttons .song-buttons {
+  position: static !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  align-items: center !important;
+
+  /* size to content so the backdrop wraps them */
+  width: 100% !important;
+  max-width: 720px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: none;
+}
+
+/* make each button size to content rather than forcing full width */
+.debut-song-buttons .song-buttons .btn {
+  width: 100%;
+  min-width: 160px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.debut-player-wrapper-landscape{
+  display: none;
+}
+
+
+/* responsive tweak: make landscape wrapper buttons wider on small screens */
+@media (max-width: 1000px) and (max-height: 600px) {
+
+  .debut-player-wrapper{
+    display: none;
+  }
+
+.debut-button-wraper {
+  display: none !important;
+}
+
+// ...existing code...
+.debut-player-wrapper-landscape {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: start;
+
+}
+
+/* Landscape: backdrop for the song buttons */
+.debut-player-wrapper-landscape .debut-song-buttons-landscape {
+  background: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+
+  width: 35% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+  margin: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Correctly target the inner .song-buttons (stack & center) */
+.debut-player-wrapper-landscape .debut-song-buttons-landscape .song-buttons {
+  position: static !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  max-width: 720px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: none;
+}
+
+
+/* ensure each button fills the inner container */
+.debut-player-wrapper-landscape .debut-song-buttons-landscape .song-buttons .btn {
+  width: 100% !important;
+  min-width: 160px;
+  box-sizing: border-box;
+  display: block;
+  padding: 5px;
+}
+
+
+
+  .debut-player-wrapper-landscape .debut-song-buttons-landscape {
+    width: 38% !important;
+    margin-top: 70px;
+    transform: translate(-80%, 0%);
+  }
+
+
+  .debut-player-wrapper-landscape .debut-song-buttons-landscape .song-buttons .player-container .player-ui {
+gap: 2px;
+padding: 0;
+  }
+
+  .debut-player-wrapper-landscape .debut-song-buttons-landscape .song-buttons .player-container {
+    width: 100% !important;
+    transform: translate(0%, 0%);
+    max-width: 1000px;
+    margin: 0;
+  }
+}
+// ...existing code...

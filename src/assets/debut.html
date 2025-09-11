@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Object Example</title>
+</head>
+<body>
+
+    <object id="phoneObject" data="/images/phone.svg" type="image/svg+xml"></object>
+    <audio id="audioPlayer-1" src="/audio/A Selfie Song_01.mp3"></audio>
+    <audio id="audioPlayer-2" src="/audio/Cold Hearted Woman_01.mp3"></audio>
+
+    <script>
+    
+
+// players
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const phoneObject = document.getElementById('phoneObject');
+
+    phoneObject.addEventListener('load', () => {
+        const svgDoc = phoneObject.contentDocument;
+
+        if (!svgDoc) {
+            console.error('SVG document not loaded.');
+            return;
+        }
+
+        console.log('SVG document loaded successfully.');
+
+        const players = [
+            {
+                audioPlayer: document.getElementById('audioPlayer-1'),
+                playPauseButton: svgDoc.querySelector('#bluesCircle'), // We won't use this for click, but keep it for consistency
+                playIcon: svgDoc.querySelector('#bluesPlay'),
+                pauseIcon: svgDoc.querySelector('#bluesPause'),
+                progressBar: svgDoc.querySelector('#bluesline'),
+                progressFill: svgDoc.querySelector('#bluesline'),
+                playHead: svgDoc.querySelector('#bluesplayHead'),
+                playTimeDisplay: svgDoc.querySelector('#bluesplayTime text tspan'),
+                progressContainer: svgDoc.querySelector('#bluesPlayContainer'),
+                isPlaying: false,
+                progressBarStart: parseFloat(svgDoc.querySelector('#bluesline').getAttribute('x1')),
+                progressBarEnd: parseFloat(svgDoc.querySelector('#bluesline').getAttribute('x2')),
+            },
+            {
+                audioPlayer: document.getElementById('audioPlayer-2'),
+                playPauseButton: svgDoc.querySelector('#womanCircle'), // We won't use this for click
+                playIcon: svgDoc.querySelector('#womanPlay'),
+                pauseIcon: svgDoc.querySelector('#womanPause'),
+                progressBar: svgDoc.querySelector('#womanline'),
+                progressFill: svgDoc.querySelector('#womanline'),
+                playHead: svgDoc.querySelector('#womanplayHead'),
+                playTimeDisplay: svgDoc.querySelector('#womanplayTime text tspan'),
+                progressContainer: svgDoc.querySelector('#womanPlayContainer'),
+                isPlaying: false,
+                progressBarStart: parseFloat(svgDoc.querySelector('#womanline').getAttribute('x1')),
+                progressBarEnd: parseFloat(svgDoc.querySelector('#womanline').getAttribute('x2')),
+            },
+        ];
+
+        players.forEach(player => {
+            console.log('Audio Player Element:', player.audioPlayer);
+            console.log('Play Icon Element:', player.playIcon);
+            console.log('Pause Icon Element:', player.pauseIcon);
+            console.log('Progress Bar Element:', player.progressBar);
+            console.log('Progress Fill Element:', player.progressFill);
+            console.log('Play Head Element:', player.playHead);
+            console.log('Play Time Display Element:', player.playTimeDisplay);
+            console.log('Progress Container Element:', player.progressContainer);
+            console.log('Progress Bar Start:', player.progressBarStart);
+            console.log('Progress Bar End:', player.progressBarEnd);
+            console.log('--------------------');
+
+            // Make the PLAY icon clickable
+            if (player.playIcon) {
+                player.playIcon.addEventListener('click', () => {
+                    console.log('Play icon clicked for:', player.audioPlayer.id);
+                    togglePlay(player);
+                });
+            }
+
+            // Make the PAUSE icon clickable
+            if (player.pauseIcon) {
+                player.pauseIcon.addEventListener('click', () => {
+                    console.log('Pause icon clicked for:', player.audioPlayer.id);
+                    togglePlay(player);
+                });
+            }
+
+            if (player.progressContainer) {
+                player.progressContainer.addEventListener('click', (event) => {
+                    console.log('Progress container clicked for:', player.audioPlayer.id, 'at:', event.clientX, event.clientY);
+                    seekAudio(player, event);
+                });
+            }
+
+            player.audioPlayer.addEventListener('timeupdate', () => updateProgress(player));
+            player.audioPlayer.addEventListener('ended', () => {
+                player.playIcon.style.display = 'block';
+                player.pauseIcon.style.display = 'none';
+                player.isPlaying = false;
+            });
+        });
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, '0');
+            return `${minutes}:${remainingSeconds}`;
+        }
+
+        function updateProgress(player) {
+            const currentTime = player.audioPlayer.currentTime;
+            const duration = player.audioPlayer.duration;
+
+            if (isNaN(duration)) {
+                return;
+            }
+
+            const progressPercent = (currentTime / duration) * 100;
+            const progressBarWidth = player.progressBarEnd - player.progressBarStart;
+            const playHeadPosition = (progressPercent / 100) * progressBarWidth + player.progressBarStart;
+
+            player.playHead.setAttribute('cx', playHeadPosition);
+            player.progressFill.setAttribute('x2', playHeadPosition);
+            player.playTimeDisplay.textContent = formatTime(currentTime);
+
+            if (currentTime === duration) {
+                player.playIcon.style.display = 'block';
+                player.pauseIcon.style.display = 'none';
+                player.isPlaying = false;
+            }
+        }
+
+        function togglePlay(player) {
+            console.log('togglePlay called for:', player.audioPlayer.id, 'isPlaying:', player.isPlaying);
+            players.forEach(otherPlayer => {
+                if (otherPlayer !== player && otherPlayer.isPlaying) {
+                    console.log('Pausing other player:', otherPlayer.audioPlayer.id);
+                    otherPlayer.audioPlayer.pause();
+                    otherPlayer.playIcon.style.display = 'block';
+                    otherPlayer.pauseIcon.style.display = 'none';
+                    otherPlayer.isPlaying = false;
+                }
+            });
+
+            if (player.isPlaying) {
+                console.log('Pausing current player:', player.audioPlayer.id);
+                player.audioPlayer.pause();
+                player.playIcon.style.display = 'block';
+                player.pauseIcon.style.display = 'none';
+            } else {
+                console.log('Playing current player:', player.audioPlayer.id);
+                if (player.audioPlayer.currentTime === player.audioPlayer.duration) {
+                    player.audioPlayer.currentTime = 0;
+                    console.log('Resetting current time for:', player.audioPlayer.id);
+                }
+                player.audioPlayer.play();
+                player.playIcon.style.display = 'none';
+                player.pauseIcon.style.display = 'block';
+            }
+            player.isPlaying = !player.isPlaying;
+            console.log('New isPlaying state for:', player.audioPlayer.id, ':', player.isPlaying);
+        }
+
+        function seekAudio(player, event) {
+            const progressBarRect = player.progressContainer.getBoundingClientRect();
+            const clickPosition = event.clientX - progressBarRect.left;
+            const progressBarWidth = progressBarRect.width;
+            const seekTime = (clickPosition / progressBarWidth) * player.audioPlayer.duration;
+            player.audioPlayer.currentTime = seekTime;
+            console.log('Seeking audio for:', player.audioPlayer.id, 'to:', seekTime);
+        }
+    });
+});
+
+
+    </script>
+
+</body>
+</html>

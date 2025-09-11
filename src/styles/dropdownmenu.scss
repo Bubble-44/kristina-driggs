@@ -1,0 +1,143 @@
+:root {
+
+  --brand-color: #e1cec0;
+  --drop-down-menu-background-gradient-1: rgba(0,0,0,0.10);
+  --drop-down-menu-background-gradient-2: rgba(0,0,0,0.90);
+
+}
+
+.custom-dropdown-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0vh;
+  background: linear-gradient(180deg, var(--drop-down-menu-background-gradient-1), var(--drop-down-menu-background-gradient-2));
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  overflow: hidden;
+  z-index: 10;
+  /* smoother, slightly slower open/close for a more natural motion */
+  transition: height 520ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.custom-dropdown-menu.open {
+  height: 100vh;
+}
+
+.menu-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 32px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+  pointer-events: none; /* gated until visible */
+}
+
+.menu-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* enable interactions when visible */
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 48px;
+}
+
+.menu-button {
+  border: none;
+  background: none;
+  color: var(--brand-color);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-family: 'anaphora-stencil', serif;
+  font-weight: 900;
+  padding: 5px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-align: left;
+}
+
+
+.menu-albums {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.music-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  color: var(--brand-color);
+
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-family: 'anaphora-stencil', serif;
+  font-weight: 900;
+}
+
+.album-separator {
+  width: 2px;
+  height: 100%;
+  background: var(--brand-color);
+  margin: 0 24px;
+  align-self: stretch;
+}
+
+.album-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0 12px;
+    color: var(--brand-color);
+
+  transition: color 0.2s;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+}
+
+
+.social-icons svg{
+  width: 32px;
+  height: 32px;
+  
+    color: var(--brand-color);
+
+  transition: color 0.2s;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+}
+
+.home-social-icon{
+  fill: var(--brand-color);
+}
+
+
+.social-icon:hover {
+    color: var(--brand-color);
+
+}

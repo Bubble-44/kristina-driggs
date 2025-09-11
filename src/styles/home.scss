@@ -1,0 +1,647 @@
+/* ==========================================================
+   src/styles/home.scss
+   Organized and annotated for readability. No behavioral
+   changes to existing rules — only comments and grouping.
+   ========================================================== */
+
+/* -------------------------------
+   1) CSS Variables / Theme
+   ------------------------------- */
+:root {
+  /* UI framing sizes */
+  --nav-height: 64px;
+  --bottom-height: 96px;
+
+  /* Brand color pulled from the logo */
+  --brand-color: #e1cec0;
+}
+
+
+/* -------------------------------
+   2) Hero / Page framing
+   ------------------------------- */
+.hero {
+  /* Fixed full-viewport background image (uses dynamic --vh if available) */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+.home-page {
+  position: relative;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+}
+
+
+/* -------------------------------
+   3) Overlay / Section (shared)
+   ------------------------------- */
+.section {
+  /* behave like the hero: fixed, fill the framed viewport area between
+    the navbar and the bottom UI (respect safe-area-inset-bottom). */
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease-in-out;
+  z-index: 1;
+  /* Default overlay/text color should match the logo */
+  color: var(--brand-color);
+  /* height is driven by the inset when position is fixed, remove explicit 100vh
+    to avoid conflicts and ensure sections fill the framed area like the hero */
+    
+}
+
+.section.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.section-frame {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+@media (min-width: 601px) {
+  /* Desktop overlays: vertically center within the framed area. */
+  .section {
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Inner content container (constrains and centers content) */
+  .center-block {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Allow the .about-landscape wrapper to center the inner block on wide landscapes. */
+.about-landscape .center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+/* -------------------------------
+   4) About (content) styles
+   ------------------------------- */
+.about-inner {
+  padding: 0 16px 16px 16px;
+  padding-bottom: calc(var(--bottom-height) + 16px);
+  text-align: left; /* default flow; override where needed */
+  padding-top: 6px;
+}
+
+.about-title {
+  /* Center the title line */
+  text-align: center;
+}
+
+.about-hr {
+  /* small decorative rule under the title, centered */
+  width: 200px;
+  margin: 0 auto 4px;
+  display: block;
+  height: 3px;
+  background: var(--brand-color);
+  border: none;
+}
+
+
+/* -------------------------------
+   5) Bottom buttons / controls
+   ------------------------------- */
+.bottom-buttons {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0 calc(12px + env(safe-area-inset-bottom));
+  z-index: 1;
+}
+
+
+.button-text {
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #e1cec0;
+}
+
+@media (max-width: 600px) {
+  .bottom-buttons {
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 0;
+  }
+  .button-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* -------------------------------
+   8) About photo and responsive tweaks
+   ------------------------------- */
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.about-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (min-width: 700px) and (max-width: 800px) {
+  .about-photo-wrap {
+    margin-top: 100px;
+    max-width: 70%;
+  }
+}
+
+
+/* -------------------------------
+   6) Landscape-only About layout
+   (two-column: image left, scrollable text right)
+   ------------------------------- */
+@media (max-width: 1000px) and (orientation: landscape) {
+  /* make the overlay span and center inside the framed area */
+  .section.about-landscape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 10px;
+    /* fill the framed visible area (respect navbar and bottom controls) */
+    inset: 0 0 0 0;
+    transform: none;
+    /* prevent the section itself from scrolling; only the right column will */
+  }
+
+  .about-landscape .center-block {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+    align-self: center; /* center vertically inside the .section */
+
+
+        /* soft top/bottom fade so long scrolling content visually fades at edges */
+  
+  }
+
+  .landscape-inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  /* left image column fixed width, never scrolls */
+  .land-left {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; /* do not scroll the left column */
+  }
+
+  /* right column grows and is the only scrollable area */
+  .land-right {
+    flex: 1 1 60%;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0px 32px 0px 20px;
+
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 60px, black calc(100% - 160px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0px, black 60px, black calc(100% - 160px), transparent 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 90%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  /* textual inner area uses the column height for proper scrolling */
+  .land-right .about-inner {
+    box-sizing: border-box;
+    min-height: 0%;
+    align-content: center;
+    margin-top: 90px;
+  }
+
+  /* left photo fill behavior */
+  .about-landscape .about-photo-wrap {
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .about-landscape .about-photo {
+    width: 70%;
+    height: 100%;
+    object-fit: contain; /* fit the whole image inside the container without cropping */
+    object-position: center;
+    display: block;
+    background: transparent;
+    padding: 0 0 0 30px;
+  }
+
+  /* Bottom buttons in landscape behave like desktop */
+  .bottom-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 200px;
+  }
+
+
+}
+
+
+/* -------------------------------
+   7) Other page sections (music / live / contact)
+   ------------------------------- */
+.music-section,
+.live-section,
+.contact-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.live-section{
+
+  transform: translate(0%, -20%);
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+  .live-section {
+    transform: translate(0%, 15%);
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    transform: translate(0%, -40%);
+  }
+}
+
+/* -------------------------------
+   9) Player 
+   ------------------------------- */
+.player-wrap {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.player-wrap .player-container {
+  max-width: 500px;
+  margin: 0px auto 0px;
+  z-index: 0;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+.player-wrap .player-ui--cover-top .player-cover {
+  width: 200px;
+  height: 200px;
+}}
+
+.player-wrap .player-ui .player-cover--landscape {
+  display: none;
+}
+
+@media (max-width: 1000px) and (orientation: landscape) {
+  /* Stronger selector + safety rules to ensure the landscape cover is actually shown
+     when the media query matches. This overrides any earlier display:none rules. */
+  .player-wrap .player-container .player-ui .player-cover--landscape,
+  .player-wrap .player-ui .player-cover--landscape {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 80px;
+    object-fit: cover;
+
+  }
+
+  .player-wrap .player-ui--cover-top .player-cover {
+    display: none;
+  }
+
+  /* Landscape player layout: place the landscape cover as a left column (absolute)
+     and shift the rest of the UI to the right using left padding on .player-ui. */
+  .player-wrap .player-ui {
+    position: relative;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 16px;
+  box-sizing: border-box;
+  /* reserve space on the left for the absolutely positioned cover */
+  padding-left: 104px; /* cover width (80) + 24px gutter */
+  width: 100%;
+  max-width: 100%;
+  }
+
+  /* Remove the left-column width from the meta container so it doesn't force ordering.
+     The cover is taken out of flow via absolute positioning. */
+  .player-wrap .player-meta {
+    /* allow the meta block to shrink when space is tight and wrap text */
+    flex: 0 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-right: 12px;
+    /* ensure album/track text starts at the top of the right column */
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* Position the landscape cover absolutely to the far left of the player UI */
+  .player-wrap .player-meta .player-cover--landscape {
+    position: absolute !important;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block !important;
+    width: 80px !important;
+    height: auto !important;
+    max-width: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    z-index: 2;
+  }
+
+  /* Hide the square top cover variant */
+  .player-ui--cover-top .player-cover:not(.player-cover--landscape) {
+    display: none !important;
+  }
+
+  .player-wrap .player-center {
+    flex: 1 1 auto;
+    min-width: 0; /* allow progress and controls to shrink/wrap inside the flex container */
+    overflow: hidden;
+  }
+
+  .player-wrap .player-container {
+  margin-top: 0px;
+  height: 100%;
+  /* allow a wider player UI in landscape */
+  max-width: 600px;
+  width: calc(100% - 48px);
+  }
+
+  .player-wrap {
+    height: 100%;
+  }
+
+  .section.visible {
+    height: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .center-block {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0%, 15%);
+  }
+
+  .music-section {
+    height: 100%;
+    z-index: 2;
+    width: 100%;
+  }
+.player-wrap .player-container {
+  width: 70%;
+}
+
+}
+
+/* -------------------------------
+   10) Mobile framing / mask for overlays
+   ------------------------------- */
+@media (max-width: 600px) {
+  /* On small screens, stack overlay content from the top so it doesn't appear visually 'pushed up'. */
+  .section.about {
+    align-items: flex-start;
+    /* place the about section under the navbar on mobile; do not offset for
+       bottom controls here. */
+    top: var(--nav-height, 64px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+  }
+
+  /* Apply a soft mask/fade at the top and bottom of the visible section so content appears framed on mobile. */
+  .section.about {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 55px, black calc(100% - 160px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0px, black 55px, black calc(100% - 160px), transparent 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    height: 70vh;
+  }
+
+  /* extra space above the about photo on mobile */
+  .about-photo-wrap {
+    padding-top: 40px;
+  }
+
+  /* portrait About only (direct child) */
+.section.about > .center-block {
+    transform: translate(0%, 50%);
+
+}
+
+
+
+
+}
+
+/* ---------------------------------
+   Contact section (tweakable)
+   - Styles an email card with a prominent CTA link
+   - Variables below are safe to tweak for color/size/spacing
+---------------------------------- */
+
+:root {
+  --contact-card-bg: rgba(255,255,255,0.04);
+  --contact-card-border: rgba(255,255,255,0.08);
+  --contact-accent: #e1cec0; /* brand accent (matches --brand-color) */
+  --contact-radius: 12px;
+  --contact-padding: 18px 22px;
+  --contact-font-size: 1.125rem;
+}
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 16px;
+}
+
+.contact-card {
+  background: var(--contact-card-bg);
+  border: 1px solid var(--contact-card-border);
+  border-radius: var(--contact-radius);
+  padding: var(--contact-padding);
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px) saturate(120%);
+}
+
+.contact-card .label {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.85rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.contact-link {
+  color: var(--contact-accent);
+  font-weight: 700;
+  font-size: var(--contact-font-size);
+  text-decoration: none;
+  background: linear-gradient(90deg, rgba(225,206,192,0.06), rgba(225,206,192,0.02));
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  display: inline-block;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  background: linear-gradient(90deg, rgba(225,206,192,0.12), rgba(225,206,192,0.04));
+}
+
+/* responsive: stack on small screens */
+@media (max-width: 600px) {
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .contact-card .label {
+    display: block;
+  }
+}
+
+/* Contact social icons layout */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.contact-copy {
+  max-width: 640px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons img {
+  filter: grayscale(40%) brightness(1.05);
+  transition: filter 160ms ease, transform 160ms ease;
+}
+
+.social-icons a:hover img,
+.social-icons a:focus img {
+  filter: none;
+  transform: translateY(-4px);
+}
+
+@media (max-width: 1000px){
+
+
+  .social-icons a:hover img,
+.social-icons a:focus img {
+  filter: none;
+  transform: translateY(0px);
+}
+}
+
+

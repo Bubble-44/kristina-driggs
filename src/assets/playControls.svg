@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="playHeadContainer" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 473.3 200">
+  <!-- Generator: Adobe Illustrator 29.5.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 137)  -->
+  <defs>
+    <style>
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6 {
+        isolation: isolate;
+      }
+
+      .st7, .st8, .st2, .st4, .st5, .st6 {
+        fill: #fff;
+      }
+
+      .st1, .st3 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+
+      .st8 {
+        font-size: 18px;
+      }
+
+      .st8, .st2 {
+        font-family: AnaphoraStencil-Extrabold, 'Anaphora Stencil';
+        font-weight: 700;
+      }
+
+      .st9, .st3, .st4 {
+        opacity: .7;
+      }
+
+      .st2 {
+        font-size: 14px;
+      }
+
+      .st5 {
+        opacity: .8;
+      }
+
+      .st6 {
+        opacity: .4;
+      }
+    </style>
+  </defs>
+  <rect id="playHeadContainerBackground" class="st6" y="14" width="473.3" height="149.1" rx="14.3" ry="14.3"/>
+  <line id="progress" class="st3" x1="22" y1="140.3" x2="412.1" y2="140.3"/>
+  <line id="progressColored" class="st1" x1="22" y1="140.3" x2="412.1" y2="140.3"/>
+  <g id="playTime" class="st0">
+    <g class="st0">
+      <text class="st2" transform="translate(424.5 146.2)"><tspan x="0" y="0">00:00</tspan></text>
+    </g>
+  </g>
+  <circle id="playHead" class="st5" cx="22" cy="140.3" r="8.9"/>
+  <path id="next" class="st4" d="M285.3,106.4l-19.4,11.2c-2.4,1.4-5.3-.3-5.3-3.1v-4l-12.3,7.1c-2.4,1.4-5.3-.3-5.3-3.1v-22.3c0-2.7,2.9-4.4,5.3-3l12.3,7.1v-4c0-2.7,2.9-4.4,5.3-3l19.4,11.2c2.4,1.3,2.4,4.8,0,6.1v-.2Z"/>
+  <path id="prev" class="st4" d="M42.2,100.3l19.4-11.2c2.4-1.4,5.3.3,5.3,3.1v4l12.3-7.1c2.4-1.4,5.3.3,5.3,3.1v22.3c0,2.7-2.9,4.4-5.3,3l-12.3-7.1v4c0,2.7-2.9,4.4-5.3,3l-19.4-11.2c-2.4-1.3-2.4-4.8,0-6.1v.2Z"/>
+  <path id="play" class="st4" d="M180,107.2l-24.7,14.2c-3,1.7-6.7-.4-6.7-3.9v-28.5c0-3.5,3.7-5.6,6.7-3.9l24.7,14.2c3,1.7,3,6.1,0,7.8h0Z"/>
+  <rect id="pause" class="st4" x="144.4" y="84" width="38.7" height="38.7" rx="9.1" ry="9.1"/>
+  <g id="playRandom" class="st9">
+    <path class="st7" d="M343.6,112.5c8.4-1.1,12.9-11.2,18.2-16.9,5.1-5.5,10.9-8,18.4-8.4l.3-3.2,13.2,6.9-12.8,6.9c-.8.3-.3-1.9-.5-2.5-.3-1.1-2.5-.6-3.4-.5-7.9,1.6-13.6,15.2-20.3,20-3,2.2-8.7,4.8-12.4,4.8h-7.5v-7.1c2.2-.2,4.8.3,6.9,0h-.1Z"/>
+    <path class="st7" d="M380,112.5l.5-3.3,13.1,6.6c0,.5-.4.6-.7.8-2.4,1.6-8.9,4.8-11.7,5.8s-.6.3-1,.2v-2.9c-6.6-.4-13.4-2.5-17.4-7.7l5.1-6.6c3,3.8,6.9,7.3,12.1,7h0Z"/>
+    <path class="st7" d="M336.6,87.3c8.4-.4,16.5,1,22.7,7.1.3.2,0,.4,0,.6-.9,1.9-3.9,4.4-4.9,6.5-1.8-1.5-3.2-3.6-5.3-4.9s-4.8-2.2-6.7-2.2h-5.7v-7.1h-.1Z"/>
+  </g>
+  <text class="st8" transform="translate(22 41.4)"><tspan x="0" y="0">Album:</tspan></text>
+  <text class="st8" transform="translate(22 71.8)"><tspan x="0" y="0">Track:</tspan></text>
+  <text id="albumInfo" class="st8" transform="translate(93.9 42.8)"><tspan x="0" y="0" xml:space="preserve">   </tspan></text>
+  <text id="trackInfo" class="st8" transform="translate(92.8 68.4)"><tspan x="0" y="0" xml:space="preserve">    </tspan></text>
+</svg>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Positioning Examples</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 500px;
+  height: 300px;
+  border: 2px solid #ccc;
+  margin-bottom: 20px;
+  position: relative; /* Important for absolute positioning of children */
+}
+
+.box {
+  width: 80px;
+  height: 80px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+}
+
+/* Static Positioning (Default) */
+.static-box {
+  background-color: #4CAF50; /* Green */
+}
+
+/* Relative Positioning */
+.relative-box {
+  background-color: #2196F3; /* Blue */
+  position: relative;
+  left: 20px;
+  top: 10px;
+}
+
+/* Absolute Positioning */
+.absolute-box {
+  background-color: #f44336; /* Red */
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* Fixed Positioning */
+.fixed-box {
+  background-color: #ff9800; /* Orange */
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
+
+/* Sticky Positioning */
+.sticky-container {
+  height: 600px; /* Create some scrollable content */
+  border: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.sticky-box {
+  background-color: #9c27b0; /* Purple */
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+</style>
+</head>
+<body>
+
+<h2>CSS Positioning Examples</h2>
+
+<h3>Static Positioning (Default)</h3>
+<div class="container">
+  <div class="box static-box">Static</div>
+  <div class="box">Another Box</div>
+</div>
+<p>The static box is positioned according to the normal flow of the document. You cannot use top, right, bottom, left, or z-index properties to affect its position.</p>
+
+<h3>Relative Positioning</h3>
+<div class="container">
+  <div class="box static-box">Static Box</div>
+  <div class="box relative-box">Relative</div>
+</div>
+<p>The relative box is positioned relative to its normal position. Setting top, right, bottom, and left properties will shift the element away from its normal position, but it will not affect the positioning of other elements around it. The space it would have occupied in the normal flow is preserved.</p>
+
+<h3>Absolute Positioning</h3>
+<div class="container">
+  <div class="box static-box">Static Box</div>
+  <div class="box absolute-box">Absolute</div>
+</div>
+<p>The absolute box is positioned relative to the nearest positioned ancestor (an ancestor with any position value other than static). If an absolute positioned element has no positioned ancestors, it uses the document body as its reference. Absolute positioning removes the element from the normal document flow, and other elements will behave as if the absolutely positioned element is not there.</p>
+
+<h3>Fixed Positioning</h3>
+<div class="container" style="height: 200px; overflow: auto;">
+  <p>Scroll down to see the fixed box.</p>
+  <p>Some more content to enable scrolling...</p>
+  <p>And even more content...</p>
+  <div class="box fixed-box">Fixed</div>
+</div>
+<p>The fixed box is positioned relative to the viewport (the browser window). It will always stay in the same place even if the page is scrolled. Top, right, bottom, and left properties are used to position the element.</p>
+
+<h3>Sticky Positioning</h3>
+<div class="sticky-container">
+  <div class="sticky-box">Sticky!</div>
+  <p>Scroll down to see how the sticky box behaves.</p>
+  <p>More content here...</p>
+  <p>And even more content...</p>
+  <p>Keep scrolling...</p>
+  <p>Almost there...</p>
+  <p>The sticky element will stick to the top of its containing block once you scroll past it.</p>
+  <p>More content to push it out of view.</p>
+</div>
+<p>The sticky box is positioned based on the user's scroll position. It behaves like <code>relative</code> within its parent until the element is scrolled to a specified offset from the viewport. At that point, it becomes "fixed" until it reaches the boundary of its parent element.</p>
+
+</body>
+</html>

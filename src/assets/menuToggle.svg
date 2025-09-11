@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.6 95.45">
+  <defs>
+    <style>
+      .toggleStroke {
+        stroke: #e1cec0;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 11px;
+        
+      }
+
+      .toggleBackground {
+        fill:rgba(255, 255, 255, 0.34);
+      }
+    </style>
+  </defs>
+  <g id="menutoggle">
+    
+    <g id="hamburger">
+    <rect class="toggleBackground" width="122.6" height="95.45" rx="10.85" ry="10.85"/>
+      <line id="bottomLine" class="toggleStroke" x1="24.42" y1="20.58" x2="98.19" y2="20.58"/>
+      <line id="middleLine" class="toggleStroke" x1="24.42" y1="47.72" x2="98.19" y2="47.72"/>
+      <line id="topLine" class="toggleStroke" x1="24.42" y1="74.87" x2="98.19" y2="74.87"/>
+    </g>
+    <g id="X">
+    <rect class="toggleBackground" width="122.6" height="95.45" rx="10.85" ry="10.85"/>
+      <line id="X2" class="toggleStroke" x1="35.22" y1="21.64" x2="87.38" y2="73.81"/>
+      <line id="X1" class="toggleStroke" x1="35.22" y1="73.81" x2="87.38" y2="21.64"/>
+    </g>
+  </g>
+</svg>

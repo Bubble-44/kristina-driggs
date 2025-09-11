@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.256 70.343">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #1f1f21;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-5 {
+        fill: #fcfcfc;
+        font-family: ArialMT, Arial;
+        font-size: 18px;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #fff;
+      }
+
+      .cls-6 {
+        fill: #238dff;
+      }
+
+      .cls-7 {
+        fill: #1f1f21;
+      }
+
+      .cls-3 {
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Obligatory_Break_up_Album" data-name="Obligatory Break up Album" class="cls-4">
+    <g id="bottom_phone">
+      <g id="Layer_1-2" data-name="Layer 1-2">
+        <circle class="cls-7" cx="20.785" cy="22.198" r="20.785"/>
+        <g>
+          <line class="cls-3" x1="20.785" y1="9.545" x2="20.785" y2="34.858"/>
+          <line class="cls-3" x1="8.132" y1="22.198" x2="33.446" y2="22.198"/>
+        </g>
+      </g>
+      <rect class="cls-1" x="53.802" y="2" width="353.642" height="41.57" rx="20.785" ry="20.785"/>
+      <text id="I_wish_I_didn_t_have_to._I_m_so_sorry." data-name="I wish I didn&amp;apos;t have to. I&amp;apos;m so sorry." class="cls-5" transform="translate(333.599 26.054) rotate(.655) skewX(.611)"><tspan x="0" y="0">It’s over.</tspan></text>
+      <g id="Layer_1-2-2" data-name="Layer 1-2">
+        <circle class="cls-6" cx="440.461" cy="22.202" r="20.795"/>
+        <g>
+          <line class="cls-3" x1="440.494" y1="35.842" x2="440.494" y2="9.728"/>
+          <polyline class="cls-3" points="428.583 20.447 440.461 8.569 452.348 20.447"/>
+        </g>
+      </g>
+      <line class="cls-2" x1="143.228" y1="68.343" x2="319.165" y2="68.343"/>
+    </g>
+  </g>
+</svg>

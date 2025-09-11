@@ -1,0 +1,154 @@
+/* Shared player styles - matches the pill/button aesthetic used for song buttons */
+.player-container {
+  max-width: 720px;
+  margin: 24px auto 48px;
+  z-index: 0;
+  position: relative;
+}
+
+.player-ui {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.40));
+  padding: 12px 16px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+/* variant where cover should sit above the center controls (Home) */
+.player-ui--cover-top {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.player-ui--cover-top .player-cover {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  align-self: center;
+}
+
+
+
+
+.player-ui--cover-top .player-meta { min-width: 0; }
+
+
+.player-cover {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.player-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #fff;
+  min-width: 180px;
+}
+.player-meta .album { font-weight: 700; font-size: clamp(0.9rem, 1.1vw + 0.2rem, 1.12rem); }
+.player-meta .track { font-size: clamp(0.78rem, 0.9vw + 0.15rem, 0.96rem); opacity: 0.9; }
+
+.player-center { flex: 1; display:flex; flex-direction:column; gap:8px; align-items:center }
+.controls { display:flex; gap:10px; align-items:center }
+.controls .control {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:999px; cursor:pointer;
+  border:1px solid rgba(255,255,255,0.12); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  color:#fff; font-size:1.05rem; transition:transform .12s ease, box-shadow .12s ease;
+}
+.controls .control:hover { transform: translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.4) }
+/* ensure SVG icons inside controls scale and inherit color */
+.controls .control svg { width: 20px; height: 20px; display:block; color: inherit; }
+
+/* (shuffle active state removed) */
+
+.progress { width:100%; height:8px; background: rgba(255,255,255,0.06); border-radius:999px; cursor:pointer; overflow:hidden }
+.progress-bar { height:100%; background: linear-gradient(90deg,#ffefba,#ffd3a5); width:0%; border-radius:999px }
+.time { font-size:0.8rem; color: rgba(255,255,255,0.85); }
+
+.player-right { min-width:60px; color:#fff; font-weight:700; text-align:right }
+
+@media (max-width:720px) {
+  .player-ui { padding: 10px; gap: 8px; }
+  .player-cover { width:56px; height:56px }
+  .player-meta { min-width:120px; padding: 2px 0px 0px 0px !important; }
+}
+
+/* stacked metadata variant: show labels and place meta above the controls */
+.player-ui--meta-top { flex-direction: column; align-items: stretch; text-align: left }
+.player-ui--meta-top .player-meta { order: 0; padding: 6px 8px; }
+.player-ui--meta-top .player-center { order: 1; align-items: center }
+.player-meta .meta-label { color: rgba(255,255,255,0.7); font-weight:200; margin-right:6px; font-size: clamp(0.66rem, 0.7vw + 0.08rem, 0.86rem); }
+.player-meta .meta-value { color: #fff; font-weight:300; font-size: clamp(0.88rem, 1vw + 0.14rem, 1.05rem); }
+
+
+.song-buttons {
+  position: absolute;
+  left: 50%;
+  bottom: 5.5rem;
+  transform: translateX(-50%);
+  z-index: 120; /* above video */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* visual styling removed from wrapper so only .btn elements look like pills */
+}
+
+.song-buttons .btn {
+  --btn-pad-x: 14px;
+  --btn-pad-y: 8px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.song-buttons .btn::before {
+  content: '♪';
+  display: inline-block;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.song-buttons .btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+}
+
+.song-buttons .btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+@media (max-width: 720px) {
+  .song-buttons {
+    left: 50%;
+    bottom: 4.2rem;
+    padding: 2px;
+    gap: 6px;
+  }
+  .song-buttons .btn {
+    font-size: 0.7rem;
+    --btn-pad-x: 10px;
+    --btn-pad-y: 6px;
+    padding: var(--btn-pad-y) var(--btn-pad-x);
+  }
+}
