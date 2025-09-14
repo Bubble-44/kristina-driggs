@@ -67,7 +67,7 @@
   transition: opacity 420ms ease-in-out;
   z-index: 1;
   /* Default overlay/text color should match the logo */
-  color: var(--brand-color);
+  color: #e1cec0;
   /* height is driven by the inset when position is fixed, remove explicit 100vh
     to avoid conflicts and ensure sections fill the framed area like the hero */
     
@@ -151,7 +151,7 @@
   margin: 0 auto 4px;
   display: block;
   height: 3px;
-  background: var(--brand-color);
+  background: #e1cec0;
   border: none;
 }
 
